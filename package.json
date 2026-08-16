@@ -11,5 +11,8 @@
     "@astrojs/solid-js": "^5.1.0",
     "astro": "^5.13.0",
     "solid-js": "^1.9.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.123.0"
   }
 }

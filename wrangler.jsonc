@@ -1,6 +1,10 @@
 {
   "name": "website",
   "compatibility_date": "2026-08-01",
+  "routes": [
+    { "pattern": "loosandsonshvac.com", "custom_domain": true },
+    { "pattern": "www.loosandsonshvac.com", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./dist"
   }

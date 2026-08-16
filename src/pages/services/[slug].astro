@@ -35,10 +35,8 @@ const schema = {
         email: business.email,
         address: {
           '@type': 'PostalAddress',
-          streetAddress: business.address.street,
           addressLocality: business.address.city,
           addressRegion: business.address.state,
-          postalCode: business.address.zip,
           addressCountry: 'US',
         },
         url: 'https://loosandsonshvac.com/',

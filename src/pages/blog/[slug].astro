@@ -1,0 +1,69 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PhoneIcon from '../../components/PhoneIcon.astro';
+import { business } from '../../data/business';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.data.h1,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  author: { '@type': 'Organization', name: business.fullName },
+  publisher: {
+    '@type': 'HVACBusiness',
+    name: business.fullName,
+    telephone: business.phoneE164,
+    url: 'https://loosandsonshvac.com/',
+    image: 'https://loosandsonshvac.com/logo.png',
+  },
+  mainEntityOfPage: `https://loosandsonshvac.com/blog/${post.id}/`,
+};
+---
+
+<Base title={post.data.title} description={post.data.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
+
+  <section class="section svc-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">/</span>
+        <a href="/blog/">Advice</a> <span aria-hidden="true">/</span>
+        <span>{post.data.h1}</span>
+      </nav>
+      <p class="post-date">{fmt(post.data.date)}</p>
+      <h1>{post.data.h1}</h1>
+    </div>
+  </section>
+
+  <section class="section post-body">
+    <div class="wrap">
+      <article class="prose">
+        <Content />
+      </article>
+    </div>
+  </section>
+
+  <section class="final-cta section" aria-labelledby="post-cta">
+    <div class="wrap">
+      <span class="eyebrow">Longmont and the Front Range</span>
+      <h2 id="post-cta">Call the shop and tell us what it is doing.</h2>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+    </div>
+  </section>
+</Base>

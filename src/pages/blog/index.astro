@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PhoneIcon from '../../components/PhoneIcon.astro';
+import { business } from '../../data/business';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+---
+
+<Base
+  title={`HVAC Advice for Front Range Homeowners | ${business.fullName}`}
+  description="Practical heating and cooling advice from a Longmont HVAC company. What to check yourself, what the warning signs mean, and when to call."
+>
+  <section class="section svc-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">/</span>
+        <span>Advice</span>
+      </nav>
+      <span class="eyebrow">Advice from the shop</span>
+      <h1>Heating and Cooling Advice for Front Range Homeowners</h1>
+      <p class="svc-intro">
+        Things worth knowing about the equipment in your basement, written by the people who work on
+        it. We would rather tell you how to check something yourself than sell you a visit you did
+        not need.
+      </p>
+    </div>
+  </section>
+
+  <section class="section svc-signs">
+    <div class="wrap">
+      <ul class="post-list">
+        {
+          posts.map((post) => (
+            <li>
+              <article>
+                <p class="post-date">{fmt(post.data.date)}</p>
+                <h2>
+                  <a href={`/blog/${post.id}/`}>{post.data.h1}</a>
+                </h2>
+                <p>{post.data.description}</p>
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="final-cta section" aria-labelledby="blog-cta">
+    <div class="wrap">
+      <span class="eyebrow">Longmont and the Front Range</span>
+      <h2 id="blog-cta">Rather just ask somebody?</h2>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+    </div>
+  </section>
+</Base>

@@ -18,10 +18,8 @@ const schema = {
   image: 'https://loosandsonshvac.com/logo.png',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: business.address.street,
     addressLocality: business.address.city,
     addressRegion: business.address.state,
-    postalCode: business.address.zip,
     addressCountry: 'US',
   },
   areaServed: business.towns.map((t) => ({ '@type': 'City', name: `${t}, Colorado` })),

@@ -481,3 +481,31 @@ body{padding-bottom:4.25rem} /* room for sticky bar */
 .towns li a{color:var(--spruce);text-decoration:none}
 .towns li a:hover{text-decoration:underline}
 .towns li:has(a):hover{border-color:var(--copper)}
+
+/* ============ About page ============ */
+.about-cols{display:grid;gap:2.5rem;margin-top:1.5rem}
+@media(min-width:880px){.about-cols{grid-template-columns:1fr 1fr;align-items:start}}
+.about-cols h3{font-size:1.15rem;color:var(--spruce);margin-bottom:.5rem;margin-top:1.75rem}
+.about-cols h3:first-child{margin-top:0}
+.about-cols p{color:var(--ink-soft);max-width:60ch}
+.about-cols .why-photo{margin-bottom:1.75rem}
+
+/* ============ Blog ============ */
+.post-list{list-style:none;display:grid;gap:2.25rem;max-width:70ch}
+.post-list h2{margin-bottom:.5rem;font-size:clamp(1.35rem,3vw,1.7rem)}
+.post-list h2 a{color:var(--spruce);text-decoration:none}
+.post-list h2 a:hover{text-decoration:underline}
+.post-list p{color:var(--ink-soft)}
+.post-date{
+  font-family:var(--util);font-size:.78rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--copper-deep);margin-bottom:.5rem;
+}
+.post-body{background:var(--paper)}
+.prose{max-width:68ch}
+.prose h2{font-size:clamp(1.4rem,3vw,1.8rem);color:var(--spruce);margin-top:2.5rem;margin-bottom:.75rem}
+.prose h3{font-size:1.15rem;color:var(--spruce);margin-top:1.75rem;margin-bottom:.5rem}
+.prose p{margin-bottom:1.15rem}
+.prose ul,.prose ol{margin:0 0 1.35rem 1.35rem}
+.prose li{margin-bottom:.5rem}
+.prose a{color:var(--copper-deep)}
+.prose strong{font-weight:700}

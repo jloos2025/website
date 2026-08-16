@@ -8,12 +8,14 @@ export const business = {
   phoneDisplay: '(303) 536-8922',
   phoneE164: '+13035368922',
   email: 'loosandsons@gmail.com',
+  // Service area business. We deliberately publish city and region only, with
+  // no street address. The mailing address is a mailbox center, and listing one
+  // publicly is both a privacy problem and grounds for a Google Business
+  // Profile suspension.
   address: {
-    street: '1751 Hover St, Unit B4',
-    mail: 'PO Box 46',
     city: 'Longmont',
     state: 'CO',
-    zip: '80501',
+    region: 'Colorado',
   },
   services: [
     {

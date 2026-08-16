@@ -1,0 +1,193 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PhoneIcon from '../components/PhoneIcon.astro';
+import truck from '../assets/gallery/truck-side.jpg';
+import { business } from '../data/business';
+import { cityPages } from '../data/cities';
+
+const description = `Loos & Sons HVAC is a family owned heating and air conditioning company in Longmont, Colorado. We work on furnaces, air conditioning, heat pumps, boilers, radiant heat, geothermal, and water heaters across the Front Range.`;
+
+// Equipment we can demonstrate from our own job photos. Keeping this list
+// honest matters more than making it long.
+const equipment = [
+  'Gas furnaces, including high efficiency condensing models',
+  'Central air conditioning and heat pump condensers',
+  'Ductless mini-split systems, single zone and multi zone',
+  'Hot water boilers and wall mounted combi units',
+  'In-floor radiant and hydronic zone manifolds',
+  'Ground source geothermal heat pumps and loop flow centers',
+  'Tank and tankless water heaters',
+  'Humidifiers, air handlers, and duct systems',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'HVACBusiness',
+  name: business.fullName,
+  description,
+  telephone: business.phoneE164,
+  email: business.email,
+  url: 'https://loosandsonshvac.com/about/',
+  image: 'https://loosandsonshvac.com/logo.png',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: business.address.city,
+    addressRegion: business.address.state,
+    addressCountry: 'US',
+  },
+  knowsAbout: [
+    'Furnace repair and installation',
+    'Air conditioning repair and installation',
+    'Ductless mini-split heat pumps',
+    'Cold climate air source heat pumps',
+    'Hot water boilers and combi boilers',
+    'Hydronic and radiant floor heating',
+    'Geothermal ground source heat pumps',
+    'Tank and tankless water heaters',
+  ],
+  areaServed: [business.city, ...cityPages.map((c) => c.name)].map((n) => ({
+    '@type': 'City',
+    name: `${n}, Colorado`,
+  })),
+};
+---
+
+<Base title={`About ${business.fullName} | Longmont, Colorado HVAC`} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
+
+  <section class="section svc-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">/</span>
+        <span>About</span>
+      </nav>
+      <span class="eyebrow">About the company</span>
+      <h1>About {business.fullName} in Longmont, Colorado</h1>
+      <p class="svc-intro">
+        {business.fullName} is a family owned heating and air conditioning company based in Longmont,
+        Colorado. We install, repair, and maintain residential comfort systems across the Front
+        Range, and we take on the kinds of systems a lot of shops in this area would rather send
+        somewhere else.
+      </p>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+    </div>
+  </section>
+
+  <section class="section svc-signs">
+    <div class="wrap">
+      <h2>What we actually work on</h2>
+      <p class="city-body">
+        Any company can list services. The list below is the equipment you can see in our own job
+        photos, which is a more useful answer than a menu.
+      </p>
+      <ul class="sign-list">
+        {
+          equipment.map((e) => (
+            <li>
+              <span class="tick" aria-hidden="true">
+                ✓
+              </span>
+              <span>{e}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="photo-cap city-all"><a href="/gallery/">See the work behind that list</a></p>
+    </div>
+  </section>
+
+  <section class="section svc-process">
+    <div class="wrap">
+      <h2>The part that makes us different</h2>
+      <div class="about-cols">
+        <div>
+          <h3>We take the systems other shops decline</h3>
+          <p>
+            Boilers, hydronic zones, and radiant floors are their own trade inside this trade, and
+            plenty of heating companies will not touch them. Geothermal is narrower still. If you own
+            a ground source heat pump on the Front Range, you already know how short the list of
+            companies willing to service it is. We are on that list, and we work on the flow centers
+            and loop side as well as the equipment itself.
+          </p>
+          <h3>We diagnose the system, not just the part</h3>
+          <p>
+            A furnace that shuts off early usually has an airflow or safety problem rather than a
+            broken burner. A cold radiator is usually air or a failed zone valve rather than a dead
+            boiler. Replacing the obvious component without finding the cause is how people end up
+            calling somebody else about the same problem a month later.
+          </p>
+        </div>
+        <div>
+          <figure class="why-photo">
+            <Image
+              src={truck}
+              alt="Loos & Sons HVAC service truck with the company logo on the door"
+              widths={[560, 1000]}
+              sizes="(min-width: 880px) 42vw, 92vw"
+              loading="lazy"
+            />
+          </figure>
+          <h3>You approve the price first</h3>
+          <p>
+            We explain what failed, what the repair takes, and what it costs before the work starts,
+            and the invoice matches that number. On a replacement we tell you honestly when your
+            current equipment still has good years left in it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section svc-faq">
+    <div class="wrap">
+      <h2>Quick facts</h2>
+      <dl class="faq-list">
+        <div class="faq-item">
+          <dt>Where are you based?</dt>
+          <dd>
+            {business.address.city}, {business.address.region}. We are a service area business, so we
+            come to you rather than working out of a storefront.
+          </dd>
+        </div>
+        <div class="faq-item">
+          <dt>What area do you serve?</dt>
+          <dd>
+            Longmont and the surrounding Front Range, including {cityPages.map((c) => c.name).join(', ')}.
+          </dd>
+        </div>
+        <div class="faq-item">
+          <dt>What kind of customers do you work with?</dt>
+          <dd>Residential homeowners. Repair, replacement, installation, and seasonal maintenance.</dd>
+        </div>
+        <div class="faq-item">
+          <dt>Do you work on equipment you did not install?</dt>
+          <dd>
+            Yes, including older systems and brands other companies have declined to service.
+          </dd>
+        </div>
+        <div class="faq-item">
+          <dt>How do I reach you?</dt>
+          <dd>
+            Call <a href={`tel:${business.phoneE164}`}>{business.phoneDisplay}</a> or email{' '}
+            <a href={`mailto:${business.email}`}>{business.email}</a>.
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="final-cta section" aria-labelledby="about-cta">
+    <div class="wrap">
+      <span class="eyebrow">Longmont and the Front Range</span>
+      <h2 id="about-cta">Call the shop and tell us what it is doing.</h2>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+    </div>
+  </section>
+</Base>

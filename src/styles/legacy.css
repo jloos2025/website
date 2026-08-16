@@ -361,21 +361,37 @@ body{padding-bottom:4.25rem} /* room for sticky bar */
 .why-photo{margin:0;border:1px solid #CFC3A4;border-radius:var(--radius);overflow:hidden;line-height:0}
 .why-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
 
-/* ============ Hero backdrop (brand banner) ============ */
+/* ============ Hero backdrop and logo ============ */
 .hero{position:relative;isolation:isolate;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:-2;line-height:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:right top}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
 .hero::after{
   content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(100deg,rgba(23,40,31,.96) 0%,rgba(23,40,31,.90) 42%,rgba(23,40,31,.62) 72%,rgba(23,40,31,.45) 100%);
+  background:linear-gradient(100deg,rgba(23,40,31,.97) 0%,rgba(23,40,31,.93) 45%,rgba(23,40,31,.80) 75%,rgba(23,40,31,.72) 100%);
 }
 @media(max-width:879px){
-  .hero::after{background:linear-gradient(180deg,rgba(23,40,31,.90) 0%,rgba(23,40,31,.95) 55%,rgba(23,40,31,.97) 100%)}
-  .hero-bg img{object-position:center}
+  .hero::after{background:linear-gradient(180deg,rgba(23,40,31,.93) 0%,rgba(23,40,31,.95) 60%,rgba(23,40,31,.97) 100%)}
 }
-.hero .wrap{padding-block:3.5rem 4rem}
-@media(min-width:880px){.hero .wrap{grid-template-columns:minmax(0,1fr);padding-block:6rem 6.5rem}}
-.hero-copy{max-width:38rem}
+.hero .wrap{padding-block:3rem 3.5rem;display:grid;gap:2rem;justify-items:center}
+.hero-copy{max-width:38rem;order:2}
+.hero-logo{order:1;width:100%;display:flex;justify-content:center}
+/* contain guarantees the mark is never cropped at any viewport */
+.hero-logo img{
+  display:block;width:auto;height:auto;
+  max-width:min(15rem,60vw);max-height:15rem;
+  object-fit:contain;
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,.45));
+}
+@media(min-width:880px){
+  .hero .wrap{
+    grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+    align-items:center;justify-items:start;
+    padding-block:5rem 5.5rem;
+  }
+  .hero-copy{order:1}
+  .hero-logo{order:2;justify-content:center}
+  .hero-logo img{max-width:min(24rem,32vw);max-height:24rem}
+}
 
 /* ============ Header brand + nav ============ */
 .brand-link{display:flex;align-items:center;gap:.85rem;text-decoration:none;color:inherit}

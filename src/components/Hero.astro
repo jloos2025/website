@@ -1,13 +1,14 @@
 ---
 import { Image } from 'astro:assets';
 import PhoneIcon from './PhoneIcon.astro';
-import banner from '../assets/hero-banner.png';
+import scenery from '../assets/hero-scenery.jpg';
+import logo from '../assets/hero-logo.png';
 import { business } from '../data/business';
 ---
 
 <section class="hero" aria-labelledby="hero-h">
   <div class="hero-bg" aria-hidden="true">
-    <Image src={banner} alt="" widths={[900, 1600]} sizes="100vw" loading="eager" />
+    <Image src={scenery} alt="" widths={[900, 1600]} sizes="100vw" loading="eager" />
   </div>
   <div class="wrap">
     <div class="hero-copy">
@@ -23,6 +24,15 @@ import { business } from '../data/business';
         Call {business.phoneDisplay}
       </a>
       <p class="call-note">We can usually get out the same day.</p>
+    </div>
+    <div class="hero-logo">
+      <Image
+        src={logo}
+        alt={`${business.fullName} logo`}
+        widths={[320, 640]}
+        sizes="(min-width: 880px) 30vw, 40vw"
+        loading="eager"
+      />
     </div>
   </div>
 </section>

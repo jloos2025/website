@@ -92,6 +92,116 @@ export const cityPages: CityPage[] = [
     services: ['furnace-installation', 'water-heaters', 'furnace-repair', 'ac-repair'],
   },
   {
+    slug: 'boulder',
+    name: 'Boulder',
+    county: 'Boulder County',
+    intro:
+      'Boulder is a short run southwest of the shop, and it has more rules around heating and cooling equipment than anywhere else we work.',
+    local:
+      'Two things make Boulder its own animal. First, the city has pushed hard on electrification, and under the current energy code new construction is no longer permitted to use natural gas for equipment that used to default to it. That moves the conversation toward heat pumps whether or not you came in wanting one. Second, a large share of the housing is rental, and Boulder rentals have to meet the city SmartRegs efficiency standard, which landlords often discover at the worst possible moment. On top of the regulatory side, plenty of older Boulder homes were built with no cooling at all, and adding it without tearing up a finished house is exactly what ductless systems are for.',
+    services: ['heat-pumps', 'furnace-repair', 'boilers', 'ac-installation'],
+  },
+  {
+    slug: 'louisville',
+    name: 'Louisville',
+    county: 'Boulder County',
+    intro:
+      'Louisville is a straight shot south of Longmont, and a lot of the work there now involves homes that are only a few years old for a reason nobody wanted.',
+    local:
+      'The Marshall Fire took a large part of this town in December 2021, and the rebuild reshaped what is in Louisville basements. Rebuild incentives were tied to high efficiency electric equipment, with the state grant for rebuilt homes requiring heat pumps for space heating and cooling, air source or ground source, and Xcel added its own rebates on top. The result is a concentration of newer all-electric and heat pump homes here that you will not find in most Front Range towns. We work on that equipment, including the ground source systems, which matters because the pool of companies that will service a geothermal heat pump is small. The older parts of Louisville that were untouched still run conventional gas systems, so we cover both.',
+    services: ['heat-pumps', 'geothermal', 'furnace-repair', 'ac-repair'],
+  },
+  {
+    slug: 'superior',
+    name: 'Superior',
+    county: 'Boulder County',
+    intro:
+      'Superior sits next to Louisville and shares the same recent history, which shows up in the equipment we find there.',
+    local:
+      'Like Louisville, Superior lost a large number of homes in the Marshall Fire and rebuilt under green building incentives that pushed toward all-electric equipment and heat pumps. That means an unusual share of the town runs on systems that many heating companies still treat as unfamiliar. We are comfortable with them. Superior also has its older subdivision stock from before the fire, where we do ordinary furnace, air conditioning, and water heater work. When you call, tell us whether your home is a rebuild, because it tells us immediately what we are likely walking into.',
+    services: ['heat-pumps', 'geothermal', 'ac-repair', 'water-heaters'],
+  },
+  {
+    slug: 'lafayette',
+    name: 'Lafayette',
+    county: 'Boulder County',
+    intro:
+      'Lafayette is close enough that we are there often, and it splits cleanly between the old town core and everything built around it since.',
+    local:
+      'Old Town Lafayette has small, older houses where the mechanical room is a corner of a basement and there is no easy path for new ductwork. That is where mini-splits and careful boiler work earn their keep. The subdivisions further out are newer and mostly forced air, so the work there looks like the rest of the growth corridor: builder equipment reaching the age where it needs real service. Lafayette also has a fair amount of older hydronic heat, and we are one of the shops that will still take those calls.',
+    services: ['boilers', 'heat-pumps', 'furnace-repair', 'radiant-heating'],
+  },
+  {
+    slug: 'broomfield',
+    name: 'Broomfield',
+    county: 'City and County of Broomfield',
+    intro:
+      'Broomfield sits between us and the north metro, and it is one of the more consistently newer housing markets we cover.',
+    local:
+      'Much of Broomfield was master planned and built in waves, so entire neighborhoods share an equipment vintage. When one furnace or condenser model starts failing on a street, we usually see several. The larger two story homes out toward the newer developments bring the familiar complaint that the upstairs never matches the main floor, which is a zoning and distribution problem before it is an equipment problem. Broomfield also has enough attached and higher density housing that space for equipment is tight, which changes what we can install.',
+    services: ['ac-repair', 'furnace-repair', 'heat-pumps', 'seasonal-tune-ups'],
+  },
+  {
+    slug: 'westminster',
+    name: 'Westminster',
+    county: 'Adams and Jefferson Counties',
+    intro:
+      'Westminster is a regular run for us down the US 36 corridor, and it covers a wide spread of housing ages.',
+    local:
+      'East Westminster holds a lot of housing from the 1960s through the 1980s, which is prime territory for full system replacement rather than another repair on equipment that has already been patched twice. Those homes also tend to have ductwork that was designed for a furnace and had cooling added later, so the airflow is rarely balanced. Newer west Westminster is a different job entirely, mostly builder equipment aging into its first real service calls. We handle both, and the honest recommendation is usually different on each side of town.',
+    services: ['furnace-installation', 'ac-installation', 'furnace-repair', 'water-heaters'],
+  },
+  {
+    slug: 'arvada',
+    name: 'Arvada',
+    county: 'Jefferson County',
+    intro:
+      'Arvada is a longer drive from the shop than our Boulder County towns, and we plan the schedule around that rather than pretending otherwise.',
+    local:
+      'Arvada has an enormous stock of mid-century ranch homes, especially around Olde Town and the older neighborhoods east of it. Those houses were built for a furnace and a chimney, and everything since has been added on: central air, a bigger water heater, sometimes a finished basement with no return air. That history is why an Arvada job often turns into a conversation about the whole system instead of the one part that failed. West Arvada is newer and more conventional. If you are in Arvada, call earlier in the day when you can, since it helps us route the truck properly.',
+    services: ['furnace-repair', 'ac-installation', 'water-heaters', 'furnace-installation'],
+  },
+  {
+    slug: 'wheat-ridge',
+    name: 'Wheat Ridge',
+    county: 'Jefferson County',
+    intro:
+      'Wheat Ridge is at the south end of what we cover, and it is almost entirely older housing, which suits the kind of work we like.',
+    local:
+      'This is brick ranch country, much of it built in the 1950s and 1960s on generous lots with mature trees. A lot of these homes have original ductwork, undersized returns, and cooling that was added decades after the house was finished. Some still have boilers and radiators, and those we are glad to take. The mature shade actually helps in summer, which means a properly sized system here does not need to be as large as a builder in an open new subdivision would spec. Oversizing an old Wheat Ridge house is a common and expensive mistake.',
+    services: ['boilers', 'furnace-installation', 'ac-installation', 'radiant-heating'],
+  },
+  {
+    slug: 'golden',
+    name: 'Golden',
+    county: 'Jefferson County',
+    intro:
+      'Golden is up against the foothills at the southwest edge of our range, and the terrain changes what the heating system has to do.',
+    local:
+      'Golden shares something with Lyons: elevation and canyon exposure make it colder than the flats on the same night, so equipment sized off a generic assumption comes up short in deep winter. The older homes in and around downtown are small and tightly built with limited mechanical space, and some are heated by boilers. Homes further up carry the same considerations as any foothills property, including whether you are on natural gas at all. Tell us your fuel and your elevation when you call, because both change the recommendation.',
+    services: ['boilers', 'furnace-repair', 'heat-pumps', 'radiant-heating'],
+  },
+  {
+    slug: 'lakewood',
+    name: 'Lakewood',
+    county: 'Jefferson County',
+    intro:
+      'Lakewood is the furthest south we regularly go, so it is worth calling early and being flexible on timing.',
+    local:
+      'Lakewood is large and its housing spans decades, but a great deal of it is post-war and mid-century, with the same pattern we see across the older metro: a furnace at the center of the house, cooling added later, and ductwork that was never rebalanced afterward. Green Mountain and the newer pockets are different, generally more conventional forced air of a later vintage. Because of the drive from Longmont, we are straight with Lakewood callers about scheduling. If you need somebody in the next hour, we will tell you rather than leave you waiting on a truck that is forty minutes out.',
+    services: ['furnace-repair', 'ac-repair', 'furnace-installation', 'water-heaters'],
+  },
+  {
+    slug: 'thornton',
+    name: 'Thornton',
+    county: 'Adams County',
+    intro:
+      'Thornton sits east of the US 36 corridor and covers a wide age range of housing, from 1960s tract homes to recent construction up north.',
+    local:
+      'South Thornton is older, and those homes are now well past the point where original equipment survives, so a lot of what we do there is replacement rather than repair. North Thornton has grown steadily and looks like the rest of the newer Front Range: builder-grade systems, tight envelopes, and upstairs rooms that run warm. The open exposure on the newer north side means summer load is higher than in an older, shaded neighborhood, and cooling systems there work harder for it.',
+    services: ['ac-repair', 'furnace-installation', 'furnace-repair', 'seasonal-tune-ups'],
+  },
+  {
     slug: 'erie',
     name: 'Erie',
     county: 'Boulder and Weld Counties',

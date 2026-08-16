@@ -83,7 +83,7 @@ export const servicePages: ServicePage[] = [
       'New air conditioning installation in Longmont, Colorado. Right-sized systems, clean installs, and a written price before the work starts. Call (303) 536-8922.',
     eyebrow: 'Air conditioning installation',
     intro:
-      'A new air conditioner is a system, not a box. We size it for your house, install it clean, and explain what we did in plain English. A system sized correctly runs less, lasts longer, and keeps the house even from room to room.',
+      'Most of the comfort problems people blame on their equipment come from a system that was never sized for the house. We measure first, install it clean, and walk you through what we did. A correctly sized system cycles less and keeps the temperature even from room to room.',
     signs: {
       heading: 'Signs it is time for a new system',
       items: [
@@ -104,7 +104,7 @@ export const servicePages: ServicePage[] = [
         },
         {
           title: 'You get options and a written price',
-          body: 'We show you what fits your house and your budget, explain the difference between the options, and put the price in writing before anything is ordered.',
+          body: 'We show you what fits your house and your budget, and we put the price in writing before anything is ordered.',
         },
         {
           title: 'We install it clean',
@@ -112,7 +112,7 @@ export const servicePages: ServicePage[] = [
         },
         {
           title: 'We start it up and walk you through it',
-          body: 'We test the system, confirm the airflow and temperature split, register the warranty, and show you how to run it.',
+          body: 'We test the system, confirm the airflow and temperature split, and register the warranty. Then we show you how to run it.',
         },
       ],
     },
@@ -169,7 +169,7 @@ export const servicePages: ServicePage[] = [
         },
         {
           title: 'You approve the price first',
-          body: 'We explain the failure, the repair, and the cost before the work starts. No surprises on the invoice.',
+          body: 'We explain what failed and what the repair costs before the work starts, and the invoice matches that number.',
         },
         {
           title: 'We repair and verify it is safe',
@@ -226,7 +226,7 @@ export const servicePages: ServicePage[] = [
         },
         {
           title: 'You see the options and the price in writing',
-          body: 'We explain efficiency ratings and staging in plain English, tell you what actually matters for your home, and give you the number before you commit.',
+          body: 'Efficiency ratings and staging matter less than most sales pitches suggest, and we will tell you which parts apply to your house. You get the number before you commit.',
         },
         {
           title: 'We remove the old unit and install the new one',
@@ -306,7 +306,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: 'Is a tankless water heater worth it?',
-        a: 'It is worth it if you run out of hot water regularly, want the floor space back, or plan to stay in the house long enough to earn back the higher install cost. For a small household with a working tank, it is often not worth the change.',
+        a: 'It usually makes sense if you run out of hot water regularly or you plan to stay in the house long enough to earn back the higher install cost. For a small household with a tank that still works, it often is not worth the change.',
       },
       {
         q: 'My water heater is leaking. What do I do?',

@@ -20,13 +20,13 @@ export const business = {
     {
       slug: 'ac-repair',
       title: 'AC Repair',
-      blurb: 'Warm air, strange noises, or nothing at all. We find the problem and give you the price before we touch a wrench.',
+      blurb: 'Warm air, strange noises, or nothing at all. We find the cause and give you the price before we touch a wrench.',
       go: 'AC repair details',
     },
     {
       slug: 'ac-installation',
       title: 'AC Installation',
-      blurb: 'Right sized systems for Front Range summers, installed clean and explained in plain English.',
+      blurb: 'Systems sized for Front Range summers, installed clean and explained before you buy.',
       go: 'AC installation details',
     },
     {
@@ -50,7 +50,7 @@ export const business = {
     {
       slug: 'seasonal-tune-ups',
       title: 'Seasonal Tune-Ups',
-      blurb: 'A fall furnace check and a spring AC check, so the breakdown never happens in the first place.',
+      blurb: 'A fall furnace check and a spring AC check, so you find the problem before you need the system.',
       go: 'Tune-up details',
     },
   ],

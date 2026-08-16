@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PhoneIcon from '../components/PhoneIcon.astro';
+import GalleryFilter from '../components/GalleryFilter.tsx';
+import { business } from '../data/business';
+import { categories, photos } from '../data/gallery';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/gallery/*.jpg', {
+  eager: true,
+});
+
+const items = photos.map((p) => ({
+  ...p,
+  src: images[`../assets/gallery/${p.file}.jpg`]?.default,
+}));
+---
+
+<Base
+  title={`Our Work — ${business.fullName} in Longmont, CO`}
+  description={`Photos of furnace, air conditioning, mini-split, and water heater work by ${business.fullName} in Longmont, Colorado.`}
+>
+  <section class="section gal-head">
+    <div class="wrap">
+      <span class="eyebrow">Our work</span>
+      <h1>Jobs we finished, photographed where we left them.</h1>
+      <p class="gal-lede">
+        Every photo here is our own work in and around Longmont. No stock photos, no catalog
+        pictures. Look at the line sets, the venting, and the sheet metal, because that is where
+        you can tell the difference.
+      </p>
+      <GalleryFilter client:idle categories={categories} />
+    </div>
+  </section>
+
+  <section class="section gal-body">
+    <div class="wrap">
+      <ul class="gal-grid">
+        {
+          items.map((item) => (
+            <li class="gal-item" data-category={item.category}>
+              <figure>
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  widths={[400, 800]}
+                  sizes="(min-width: 960px) 30vw, (min-width: 640px) 45vw, 92vw"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="final-cta section" aria-labelledby="gal-cta">
+    <div class="wrap">
+      <span class="eyebrow">Want yours to look like this?</span>
+      <h2 id="gal-cta">Call the shop and tell us what you need.</h2>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+      <p class="call-note">{business.hoursShort} · {business.afterHoursLine}</p>
+    </div>
+  </section>
+</Base>

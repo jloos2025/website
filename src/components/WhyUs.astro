@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import truck from '../assets/gallery/truck-side.jpg';
+---
+
 <section class="why section" aria-labelledby="why-h">
   <div class="wrap">
     <div>
@@ -47,14 +52,18 @@
       </ul>
     </div>
     <div>
-      <div
-        class="photo-ph"
-        role="img"
-        aria-label="Placeholder for a photo of the Loos family in front of the service van"
-      >
-        <span class="ph-label">Family photo<br />goes here</span>
-      </div>
-      <p class="photo-cap">Roy, Dan, and Jake Loos — and the van you've seen around town.</p>
+      <figure class="why-photo">
+        <Image
+          src={truck}
+          alt="Loos & Sons HVAC service truck with the company logo on the door"
+          widths={[560, 1000]}
+          sizes="(min-width: 880px) 42vw, 92vw"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+      <p class="photo-cap">The truck you've seen around town.</p>
+      <p class="photo-cap"><a href="/gallery/">See more of our work →</a></p>
     </div>
   </div>
 </section>

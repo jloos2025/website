@@ -1,0 +1,152 @@
+---
+import Base from '../layouts/Base.astro';
+import PhoneIcon from '../components/PhoneIcon.astro';
+import { business } from '../data/business';
+
+const description = `Emergency furnace and AC repair in Longmont, Colorado. No heat, no cooling, or no hot water? Call ${business.phoneDisplay} and tell us what the system is doing.`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Emergency HVAC Repair in Longmont, Colorado',
+  serviceType: 'Emergency heating and air conditioning repair',
+  description,
+  provider: {
+    '@type': 'HVACBusiness',
+    name: business.fullName,
+    telephone: business.phoneE164,
+    url: 'https://loosandsonshvac.com/',
+  },
+  areaServed: business.towns.map((t) => ({ '@type': 'City', name: `${t}, Colorado` })),
+};
+---
+
+<Base
+  title={`Emergency HVAC Repair in Longmont, CO | No Heat or No AC | ${business.name}`}
+  description={description}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
+
+  <section class="section emerg-head">
+    <div class="wrap">
+      <span class="eyebrow">Emergency service</span>
+      <h1>No heat, no cooling, or no hot water? Call now.</h1>
+      <p class="svc-intro">
+        A furnace that quits on a freezing night is an emergency, and so is an air conditioner that
+        dies in a heat wave. Call the shop, tell us what the system is doing, and we will tell you
+        straight when we can be there.
+      </p>
+      <a class="call-btn call-btn-lg" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+      <p class="call-note">{business.city} and the Front Range</p>
+    </div>
+  </section>
+
+  <section class="section emerg-now">
+    <div class="wrap">
+      <h2>Do this before we arrive</h2>
+
+      <h3>If you have no heat</h3>
+      <ul class="sign-list">
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <span>Check that the thermostat is set to heat and above the room temperature.</span>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <span>Check the furnace switch on the wall or the unit, and check the breaker.</span>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <span>Make sure the furnace door panel is fully seated, because a loose panel stops the furnace.</span>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <span>Replace the filter if it is dirty, then try the system again.</span>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <span>Open cabinet doors under sinks on exterior walls to help keep pipes from freezing.</span>
+        </li>
+      </ul>
+
+      <h3>If you have no cooling</h3>
+      <ul class="sign-list">
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <span>Turn the cooling off and set the fan to on, which melts ice off a frozen coil.</span>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <span>Check the breaker for both the indoor and the outdoor unit.</span>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <span>Replace a dirty filter, since restricted airflow is the most common cause.</span>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <span>Close blinds on the sunny side of the house and keep interior doors open.</span>
+        </li>
+      </ul>
+
+      <div class="warn">
+        <h3>Turn off the system and call from outside if any of this is true</h3>
+        <ul class="sign-list">
+          <li>
+            <span class="tick warn-tick" aria-hidden="true">!</span>
+            <span>Your carbon monoxide alarm is sounding. Leave the house first, then call.</span>
+          </li>
+          <li>
+            <span class="tick warn-tick" aria-hidden="true">!</span>
+            <span>You smell gas. Leave the house, then call your gas utility from outside.</span>
+          </li>
+          <li>
+            <span class="tick warn-tick" aria-hidden="true">!</span>
+            <span>You see smoke, scorching, or sparks at the equipment. Shut off the breaker.</span>
+          </li>
+          <li>
+            <span class="tick warn-tick" aria-hidden="true">!</span>
+            <span>Water is pouring from the water heater or the indoor unit. Shut off the supply valve.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section emerg-what">
+    <div class="wrap">
+      <h2>What we handle on an emergency call</h2>
+      <div class="svc-grid">
+        <a class="svc-card" href="/services/furnace-repair/">
+          <h3>No heat</h3>
+          <p>Furnace will not fire, keeps shutting off, or blows cold air in the middle of winter.</p>
+          <span class="go">Furnace repair details</span>
+        </a>
+        <a class="svc-card" href="/services/ac-repair/">
+          <h3>No cooling</h3>
+          <p>Air conditioning quit during a heat wave, or the outdoor unit hums without running.</p>
+          <span class="go">AC repair details</span>
+        </a>
+        <a class="svc-card" href="/services/water-heaters/">
+          <h3>No hot water</h3>
+          <p>Water heater failed or is leaking, and the household is out of hot water.</p>
+          <span class="go">Water heater details</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta section" aria-labelledby="emerg-cta">
+    <div class="wrap">
+      <span class="eyebrow">We answer the phone</span>
+      <h2 id="emerg-cta">Tell us what it is doing and we will tell you the next step.</h2>
+      <a class="call-btn call-btn-lg" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+    </div>
+  </section>
+</Base>

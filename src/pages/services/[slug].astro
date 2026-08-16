@@ -1,0 +1,188 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import PhoneIcon from '../../components/PhoneIcon.astro';
+import { business } from '../../data/business';
+import { servicePages } from '../../data/services';
+
+export function getStaticPaths() {
+  return servicePages.map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+
+const { page } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/gallery/*.jpg', {
+  eager: true,
+});
+const shots = page.gallery
+  .map((f) => ({ file: f, src: images[`../../assets/gallery/${f}.jpg`]?.default }))
+  .filter((s) => s.src);
+
+const others = business.services.filter((s) => s.slug !== page.slug);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      name: page.h1,
+      serviceType: page.eyebrow,
+      description: page.description,
+      provider: {
+        '@type': 'HVACBusiness',
+        name: business.fullName,
+        telephone: business.phoneE164,
+        email: business.email,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: business.address.street,
+          addressLocality: business.address.city,
+          addressRegion: business.address.state,
+          postalCode: business.address.zip,
+          addressCountry: 'US',
+        },
+        url: 'https://loosandsonshvac.com/',
+      },
+      areaServed: business.towns.map((t) => ({
+        '@type': 'City',
+        name: `${t}, Colorado`,
+      })),
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: page.faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Base title={page.title} description={page.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
+
+  <section class="section svc-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">/</span>
+        <span>{page.eyebrow}</span>
+      </nav>
+      <span class="eyebrow">{page.eyebrow}</span>
+      <h1>{page.h1}</h1>
+      <p class="svc-intro">{page.intro}</p>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+    </div>
+  </section>
+
+  <section class="section svc-signs">
+    <div class="wrap">
+      <h2>{page.signs.heading}</h2>
+      <ul class="sign-list">
+        {
+          page.signs.items.map((i) => (
+            <li>
+              <span class="tick" aria-hidden="true">
+                ✓
+              </span>
+              <span>{i}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section svc-process">
+    <div class="wrap">
+      <h2>{page.process.heading}</h2>
+      <ol class="step-list">
+        {
+          page.process.steps.map((s) => (
+            <li>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  {
+    shots.length > 0 && (
+      <section class="section svc-shots">
+        <div class="wrap">
+          <h2>Recent work</h2>
+          <ul class="gal-grid">
+            {shots.map((s) => (
+              <li class="gal-item">
+                <figure>
+                  <Image
+                    src={s.src}
+                    alt={`${page.eyebrow} job by ${business.fullName} in Longmont, Colorado`}
+                    widths={[400, 800]}
+                    sizes="(min-width: 960px) 30vw, (min-width: 640px) 45vw, 92vw"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              </li>
+            ))}
+          </ul>
+          <p class="photo-cap">
+            <a href="/gallery/">See more of our work</a>
+          </p>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section svc-faq">
+    <div class="wrap">
+      <h2>Questions we get asked</h2>
+      <dl class="faq-list">
+        {
+          page.faqs.map((f) => (
+            <div class="faq-item">
+              <dt>{f.q}</dt>
+              <dd>{f.a}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <section class="section svc-other">
+    <div class="wrap">
+      <h2>Other things we do</h2>
+      <div class="svc-grid">
+        {
+          others.map((s) => (
+            <a class="svc-card" href={`/services/${s.slug}/`}>
+              <h3>{s.title}</h3>
+              <p>{s.blurb}</p>
+              <span class="go">{s.go}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta section" aria-labelledby="svc-cta">
+    <div class="wrap">
+      <span class="eyebrow">{business.city} and the Front Range</span>
+      <h2 id="svc-cta">Call the shop and tell us what it is doing.</h2>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+    </div>
+  </section>
+</Base>

@@ -360,3 +360,101 @@ body{padding-bottom:4.25rem} /* room for sticky bar */
 }
 .why-photo{margin:0;border:1px solid #CFC3A4;border-radius:var(--radius);overflow:hidden;line-height:0}
 .why-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
+
+/* ============ Hero backdrop (brand banner) ============ */
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-2;line-height:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center right}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(100deg,rgba(23,40,31,.96) 0%,rgba(23,40,31,.90) 42%,rgba(23,40,31,.62) 72%,rgba(23,40,31,.45) 100%);
+}
+@media(max-width:879px){
+  .hero::after{background:linear-gradient(180deg,rgba(23,40,31,.90) 0%,rgba(23,40,31,.95) 55%,rgba(23,40,31,.97) 100%)}
+  .hero-bg img{object-position:center}
+}
+.hero .wrap{padding-block:3.5rem 4rem}
+@media(min-width:880px){.hero .wrap{grid-template-columns:minmax(0,1fr);padding-block:6rem 6.5rem}}
+.hero-copy{max-width:38rem}
+
+/* ============ Header brand + nav ============ */
+.brand-link{display:flex;align-items:center;gap:.85rem;text-decoration:none;color:inherit}
+.logo-img{width:64px;height:64px;flex:none}
+@media(min-width:768px){.logo-img{width:72px;height:72px}}
+.site-nav{display:none}
+@media(min-width:768px){
+  .site-nav{display:flex;gap:1.4rem;margin-left:2rem;font-family:var(--util);font-size:.92rem}
+  .site-nav a{color:var(--ink);text-decoration:none;font-weight:600}
+  .site-nav a:hover{color:var(--copper-deep);text-decoration:underline}
+}
+.header-call .hours{
+  display:none;font-family:var(--util);font-size:.78rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+}
+@media(min-width:768px){.header-call .hours{display:block}}
+
+/* ============ Service + emergency pages ============ */
+.crumbs{font-family:var(--util);font-size:.82rem;color:var(--ink-soft);margin-bottom:1.25rem}
+.crumbs a{color:var(--copper-deep)}
+.crumbs span{margin-inline:.35rem}
+.svc-head,.emerg-head{background:var(--paper);padding-bottom:2.5rem}
+.svc-head h1,.emerg-head h1{font-size:clamp(1.9rem,4.6vw,2.7rem);max-width:20ch;margin-bottom:1.1rem}
+.svc-intro{max-width:58ch;font-size:1.1rem;color:var(--ink-soft);margin-bottom:1.75rem}
+.call-btn-lg{font-size:1.25rem;padding:1.1rem 2rem}
+.svc-signs{background:var(--paper-dim);border-block:1px solid #E2D8C2}
+.sign-list{list-style:none;display:grid;gap:.9rem;margin-top:1.5rem;max-width:60ch}
+.sign-list li{display:grid;grid-template-columns:auto 1fr;gap:.85rem;align-items:start}
+.sign-list li span:last-child{color:var(--ink-soft)}
+.warn{margin-top:2.5rem;border-left:5px solid var(--flame);background:#fff;padding:1.4rem 1.5rem;border-radius:var(--radius)}
+.warn h3{color:var(--flame-hot);font-size:1.1rem;margin-bottom:.4rem}
+.warn-tick{background:var(--flame)}
+.svc-process{background:var(--paper)}
+.step-list{list-style:none;counter-reset:step;display:grid;gap:1.5rem;margin-top:1.75rem}
+@media(min-width:880px){.step-list{grid-template-columns:1fr 1fr}}
+.step-list li{counter-increment:step;position:relative;padding-left:3.25rem}
+.step-list li::before{
+  content:counter(step);position:absolute;left:0;top:0;
+  width:2.3rem;height:2.3rem;border-radius:50%;
+  background:var(--spruce);color:var(--cream-on-green);
+  display:grid;place-items:center;
+  font-family:var(--util);font-weight:700;font-size:1rem;
+}
+.step-list h3{font-size:1.1rem;color:var(--spruce);margin-bottom:.35rem}
+.step-list p{color:var(--ink-soft);font-size:.97rem}
+.svc-shots{background:var(--paper-dim);border-block:1px solid #E2D8C2}
+.svc-shots .gal-grid{margin-top:1.75rem}
+.svc-faq{background:var(--paper)}
+.faq-list{margin-top:1.75rem;display:grid;gap:1.4rem;max-width:70ch}
+.faq-item dt{font-family:var(--slab);font-weight:700;font-size:1.1rem;color:var(--spruce);margin-bottom:.4rem}
+.faq-item dd{margin:0;color:var(--ink-soft)}
+.svc-other{background:var(--paper-dim);border-top:1px solid #E2D8C2}
+.svc-other .svc-grid{margin-top:1.5rem}
+.emerg-now{background:var(--paper)}
+.emerg-now h3{font-size:1.15rem;color:var(--spruce);margin-top:2rem;margin-bottom:.5rem}
+.emerg-what{background:var(--paper-dim);border-block:1px solid #E2D8C2}
+
+/* ============ Footer links ============ */
+.foot-links{list-style:none;line-height:1.9}
+.foot-links a{color:#E8E2D2;text-decoration:none}
+.foot-links a:hover{text-decoration:underline}
+
+/* ============ Header fit at mid widths ============ */
+.site-header .wrap{gap:1rem;flex-wrap:nowrap}
+.header-call .call-btn,.header-call .hours{white-space:nowrap}
+.brand .name,.brand .place{white-space:nowrap}
+.site-nav{display:none}
+@media(min-width:980px){
+  .site-nav{display:flex;gap:1.4rem;margin-left:2rem}
+}
+@media(max-width:979px) and (min-width:768px){
+  .brand .place{font-size:.68rem}
+}
+
+/* ============ Tick markers outside the why section ============ */
+.sign-list .tick{
+  width:1.6rem;height:1.6rem;flex:none;margin-top:.1rem;
+  border-radius:50%;background:var(--spruce);color:var(--cream-on-green);
+  display:grid;place-items:center;
+  font-family:var(--util);font-size:.85rem;font-weight:700;line-height:1;
+}
+.sign-list .warn-tick{background:var(--flame);color:#fff}

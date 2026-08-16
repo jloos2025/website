@@ -1,27 +1,23 @@
 ---
 import PhoneIcon from './PhoneIcon.astro';
-import OpenStatus from './OpenStatus.tsx';
 import { business } from '../data/business';
 ---
 
 <header class="site-header">
   <div class="wrap">
-    <img class="logo-img" src="/logo.png" width="46" height="46" alt="Loos & Sons HVAC logo" />
-    <div class="brand">
-      <span class="name">{business.name}</span>
-      <span class="place">{business.place}</span>
-    </div>
+    <a class="brand-link" href="/">
+      <img class="logo-img" src="/logo.png" width="72" height="72" alt="Loos & Sons HVAC logo" />
+      <span class="brand">
+        <span class="name">{business.name}</span>
+        <span class="place">{business.place}</span>
+      </span>
+    </a>
     <nav class="site-nav" aria-label="Main">
+      <a href="/emergency/">Emergency</a>
       <a href="/gallery/">Our work</a>
     </nav>
     <div class="header-call">
-      <OpenStatus
-        client:idle
-        schedule={business.schedule}
-        timezone={business.timezone}
-        hoursShort={business.hoursShort}
-        afterHoursLine={business.afterHoursLine}
-      />
+      <p class="hours">Call now</p>
       <a
         class="call-btn"
         href={`tel:${business.phoneE164}`}

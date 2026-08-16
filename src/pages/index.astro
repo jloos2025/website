@@ -4,19 +4,46 @@ import Hero from '../components/Hero.astro';
 import Services from '../components/Services.astro';
 import WhyUs from '../components/WhyUs.astro';
 import ServiceArea from '../components/ServiceArea.astro';
-import Reviews from '../components/Reviews.astro';
 import FinalCta from '../components/FinalCta.astro';
 import { business } from '../data/business';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'HVACBusiness',
+  name: business.fullName,
+  description: `Family owned heating and air conditioning company serving ${business.city}, Colorado and the Front Range.`,
+  telephone: business.phoneE164,
+  email: business.email,
+  url: 'https://loosandsonshvac.com/',
+  image: 'https://loosandsonshvac.com/logo.png',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: business.address.street,
+    addressLocality: business.address.city,
+    addressRegion: business.address.state,
+    postalCode: business.address.zip,
+    addressCountry: 'US',
+  },
+  areaServed: business.towns.map((t) => ({ '@type': 'City', name: `${t}, Colorado` })),
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'HVAC Services',
+    itemListElement: business.services.map((s) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: s.title, url: `https://loosandsonshvac.com/services/${s.slug}/` },
+    })),
+  },
+};
 ---
 
 <Base
-  title={`${business.fullName} — Furnace & AC Repair in Longmont, CO`}
-  description={`Family-run HVAC repair and installation in Longmont, Colorado since ${business.foundingYear}. AC repair, furnace repair, water heaters, and seasonal tune-ups. Call ${business.phoneDisplay}.`}
+  title={`Furnace & AC Repair in Longmont, CO | ${business.fullName}`}
+  description={`Family-run heating and air conditioning repair and installation in Longmont, Colorado. Furnaces, AC, mini-splits, and water heaters. Call ${business.phoneDisplay}.`}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
   <Hero />
   <Services />
   <WhyUs />
   <ServiceArea />
-  <Reviews />
   <FinalCta />
 </Base>

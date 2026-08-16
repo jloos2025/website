@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://loosandsonshvac.com/sitemap-index.xml

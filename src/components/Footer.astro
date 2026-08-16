@@ -7,8 +7,7 @@ import { business } from '../data/business';
     <div class="foot-brand">
       <span class="name">{business.fullName}</span>
       <p>
-        Family owned and operated in Longmont, Colorado since {business.foundingYear}. Licensed
-        &amp; insured. {business.license}
+        Family owned and operated in Longmont, Colorado. Licensed and insured. {business.license}
       </p>
     </div>
     <div>
@@ -17,25 +16,21 @@ import { business } from '../data/business';
         {business.address.street}<br />
         {business.address.city}, {business.address.state}
         {business.address.zip}<br />
-        <a class="foot-phone" href={`tel:${business.phoneE164}`}>{business.phoneDisplay}</a>
+        <a class="foot-phone" href={`tel:${business.phoneE164}`}>{business.phoneDisplay}</a><br />
+        <a href={`mailto:${business.email}`}>{business.email}</a>
       </address>
     </div>
     <div>
-      <h3>Shop hours</h3>
-      <dl>
-        {
-          business.hoursTable.map(([day, hours]) => (
-            <div>
-              <dt>{day}</dt>
-              <dd>{hours}</dd>
-            </div>
-          ))
-        }
-      </dl>
+      <h3>Services</h3>
+      <ul class="foot-links">
+        {business.services.map((s) => <li><a href={`/services/${s.slug}/`}>{s.title}</a></li>)}
+        <li><a href="/emergency/">Emergency Service</a></li>
+        <li><a href="/gallery/">Our Work</a></li>
+      </ul>
     </div>
   </div>
   <p class="fineprint">
     © {new Date().getFullYear()}
-    {business.fullName} · Placeholder business details for design review
+    {business.fullName} · Longmont, Colorado
   </p>
 </footer>

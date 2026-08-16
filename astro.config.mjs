@@ -1,6 +1,13 @@
 import { defineConfig } from 'astro/config';
 import solid from '@astrojs/solid-js';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  integrations: [solid()],
+  site: 'https://loosandsonshvac.com',
+  integrations: [
+    solid(),
+    sitemap({
+      filter: (page) => !/\/v[123]\/?$/.test(page),
+    }),
+  ],
 });

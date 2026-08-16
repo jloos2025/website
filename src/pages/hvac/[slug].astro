@@ -1,0 +1,119 @@
+---
+import Base from '../../layouts/Base.astro';
+import PhoneIcon from '../../components/PhoneIcon.astro';
+import { business } from '../../data/business';
+import { cityPages } from '../../data/cities';
+import { servicePages } from '../../data/services';
+
+export function getStaticPaths() {
+  return cityPages.map((city) => ({ params: { slug: city.slug }, props: { city } }));
+}
+
+const { city } = Astro.props;
+
+const linked = city.services
+  .map((slug) => {
+    const svc = business.services.find((s) => s.slug === slug);
+    const page = servicePages.find((p) => p.slug === slug);
+    return svc && page ? { ...svc, h1: page.h1 } : null;
+  })
+  .filter(Boolean);
+
+const title = `HVAC in ${city.name}, CO | Furnace & AC Repair | ${business.name}`;
+const description = `Heating and air conditioning repair, installation, and service in ${city.name}, Colorado. Local company based in Longmont. Call ${business.phoneDisplay}.`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'HVACBusiness',
+  name: business.fullName,
+  telephone: business.phoneE164,
+  email: business.email,
+  url: `https://loosandsonshvac.com/hvac/${city.slug}/`,
+  image: 'https://loosandsonshvac.com/logo.png',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: business.address.street,
+    addressLocality: business.address.city,
+    addressRegion: business.address.state,
+    postalCode: business.address.zip,
+    addressCountry: 'US',
+  },
+  areaServed: { '@type': 'City', name: `${city.name}, Colorado` },
+};
+---
+
+<Base title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
+
+  <section class="section svc-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">/</span>
+        <span>{city.name}</span>
+      </nav>
+      <span class="eyebrow">{city.county}</span>
+      <h1>Heating and Air Conditioning in {city.name}, Colorado</h1>
+      <p class="svc-intro">{city.intro}</p>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+    </div>
+  </section>
+
+  <section class="section svc-signs">
+    <div class="wrap">
+      <h2>What we run into in {city.name}</h2>
+      <p class="area-lede city-body">{city.local}</p>
+    </div>
+  </section>
+
+  <section class="section svc-other">
+    <div class="wrap">
+      <h2>What we get called for most in {city.name}</h2>
+      <div class="svc-grid">
+        {
+          linked.map((s) => (
+            <a class="svc-card" href={`/services/${s.slug}/`}>
+              <h3>{s.title}</h3>
+              <p>{s.blurb}</p>
+              <span class="go">{s.go}</span>
+            </a>
+          ))
+        }
+      </div>
+      <p class="photo-cap city-all">
+        <a href="/">See everything we work on</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section svc-faq">
+    <div class="wrap">
+      <h2>Other towns we cover</h2>
+      <ul class="towns">
+        <li class="home">{business.city}</li>
+        {
+          cityPages
+            .filter((c) => c.slug !== city.slug)
+            .map((c) => (
+              <li>
+                <a href={`/hvac/${c.slug}/`}>{c.name}</a>
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="final-cta section" aria-labelledby="city-cta">
+    <div class="wrap">
+      <span class="eyebrow">Serving {city.name} from our shop in Longmont</span>
+      <h2 id="city-cta">Call the shop and tell us what it is doing.</h2>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+    </div>
+  </section>
+</Base>

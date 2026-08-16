@@ -259,6 +259,250 @@ export const servicePages: ServicePage[] = [
     gallery: ['furnace-insulated-space', 'furnace-install-tech', 'furnace-bosch-pair'],
   },
   {
+    slug: 'heat-pumps',
+    h1: 'Heat Pump Installation and Repair in Longmont, Colorado',
+    title: 'Heat Pump Installation & Repair in Longmont, CO | Mini-Splits',
+    description:
+      'Heat pump and ductless mini-split installation and repair in Longmont, Colorado. Cold climate systems that heat and cool from one unit. Call (303) 536-8922.',
+    eyebrow: 'Heat pumps and mini-splits',
+    intro:
+      'A heat pump moves heat instead of burning fuel to make it, so one system handles both heating and cooling. The cold climate models made in the last few years hold their capacity far below freezing, which is what makes them work here and not just in mild states.',
+    signs: {
+      heading: 'A heat pump is worth looking at when',
+      items: [
+        'You have a room or an addition with no ductwork running to it',
+        'You heat with electric baseboard and the bills are punishing',
+        'You want air conditioning in a house that has never had it',
+        'Your furnace and your AC are both near the end of their lives',
+        'You have a garage, shop, or finished basement that stays uncomfortable',
+        'You want to cut how much gas the house burns',
+      ],
+    },
+    process: {
+      heading: 'How we approach a heat pump job',
+      steps: [
+        {
+          title: 'We figure out what the house needs',
+          body: 'A single ductless head handles one room. A multi-zone system covers several. A ducted heat pump can replace a furnace and air conditioner together. The right answer depends on your layout and where the discomfort actually is.',
+        },
+        {
+          title: 'We size for a Colorado winter',
+          body: 'This is where heat pump installs go wrong. A unit sized for cooling load alone will disappoint you in January. We size for the heating design temperature and tell you honestly whether you want backup heat.',
+        },
+        {
+          title: 'The install is most of the quality',
+          body: 'Line sets pulled tight and covered, a proper vacuum on the refrigerant lines, level pads, and mounts that keep the outdoor unit above the snow. Our gallery shows what we hand back.',
+        },
+        {
+          title: 'We commission it and show you the controls',
+          body: 'We verify the charge, run it in both heating and cooling, and walk you through the remote or thermostat so it does not get left on one setting forever.',
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: 'Do heat pumps actually work in Colorado winters?',
+        a: 'Cold climate models do. They keep useful capacity well below zero, which covers the large majority of our heating hours. What matters is that the system is sized for the heating load and that you have a plan for the coldest handful of nights, either backup heat or an existing furnace.',
+      },
+      {
+        q: 'What is the difference between a mini-split and a heat pump?',
+        a: 'A ductless mini-split is a heat pump. The name just describes how it delivers the air, through wall or ceiling heads instead of ductwork. A ducted heat pump uses the duct system you already have.',
+      },
+      {
+        q: 'Can I keep my furnace and add a heat pump?',
+        a: 'Yes, and that pairing is called a dual fuel or hybrid system. The heat pump handles most of the season at lower cost and the furnace takes over when it gets truly cold. For a lot of Front Range homes it is the most practical setup.',
+      },
+      {
+        q: 'Are there rebates on heat pumps?',
+        a: 'Federal, state, and utility incentives for heat pumps have existed in recent years and the programs change often. We will tell you what we know at the time of your quote, and we will point you at the current program rather than guess at a number.',
+      },
+    ],
+    gallery: ['minisplit-outdoor-twin-fan', 'minisplit-living-room', 'minisplit-outdoor-pair'],
+  },
+  {
+    slug: 'boilers',
+    h1: 'Boiler Repair and Installation in Longmont, Colorado',
+    title: 'Boiler Repair & Installation in Longmont, CO | Hot Water Boilers',
+    description:
+      'Boiler repair, replacement, and installation in Longmont, Colorado. Hot water boilers, combi units, and the near-boiler piping done right. Call (303) 536-8922.',
+    eyebrow: 'Boilers',
+    intro:
+      'Boilers are their own trade inside this trade, and plenty of heating companies will not touch them. We repair and replace hot water boilers and combi units, and we redo the near-boiler piping when the last installer got it wrong.',
+    signs: {
+      heading: 'Call us when you notice any of this',
+      items: [
+        'Radiators or baseboard staying cold while the boiler runs',
+        'The boiler short cycles, firing and shutting off over and over',
+        'Pressure that climbs too high or drops and needs constant refilling',
+        'Water on the floor around the boiler or the expansion tank',
+        'Banging or knocking in the pipes when a zone calls for heat',
+        'A boiler over twenty years old with rising repair costs',
+      ],
+    },
+    process: {
+      heading: 'How a boiler job goes',
+      steps: [
+        {
+          title: 'We read the whole system, not just the boiler',
+          body: 'Most boiler complaints trace back to circulation, air in the loops, a failed zone valve, or an expansion tank that lost its charge. Replacing the boiler without fixing those buys you the same problem with a newer label.',
+        },
+        {
+          title: 'We tell you if a repair is the better buy',
+          body: 'A boiler that has been maintained can run a long time. If a control or a circulator is the failure, that is a repair, and we will say so.',
+        },
+        {
+          title: 'The near-boiler piping gets done properly',
+          body: 'This is where boiler installs live or die. Correct primary and secondary piping, real air elimination, and an expansion tank sized for the system. It is the part you can see in a photo and the part that decides whether the system is quiet.',
+        },
+        {
+          title: 'We purge, balance, and verify every zone',
+          body: 'Air comes out, each zone gets checked for heat, and we set the controls before we leave.',
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: 'How long does a boiler last?',
+        a: 'A cast iron boiler that has been maintained often runs twenty to thirty years. Modern high efficiency condensing boilers generally run shorter, closer to fifteen to twenty, and they are more sensitive to water quality and to being piped correctly.',
+      },
+      {
+        q: 'Why are some of my radiators cold?',
+        a: 'Usually air trapped in the loop, a zone valve that failed, or a circulator that is not moving water. It is rarely the boiler itself, which is why we look at the distribution side first.',
+      },
+      {
+        q: 'What is a combi boiler?',
+        a: 'A combi unit provides both your space heating and your domestic hot water from one wall mounted appliance, so there is no separate water heater tank. They save space and work well for the right household, though a large family drawing several showers at once may be better served by a separate tank.',
+      },
+      {
+        q: 'My boiler pressure keeps dropping. Is that serious?',
+        a: 'It means water is leaving the system somewhere, which is worth finding rather than topping off every few weeks. It can be a relief valve, a leaking fitting, or a failed expansion tank. Call us before it becomes a floor problem.',
+      },
+    ],
+    gallery: ['boiler-combi-copper', 'boiler-basement-copper', 'boiler-room-expansion-tank'],
+  },
+  {
+    slug: 'radiant-heating',
+    h1: 'Radiant Floor and Hydronic Heating in Longmont, Colorado',
+    title: 'Radiant Floor & Hydronic Heating in Longmont, CO | Zones and Manifolds',
+    description:
+      'In-floor radiant heat, baseboard, and zoned hydronic systems in Longmont, Colorado. New manifolds, zone repairs, and system rework. Call (303) 536-8922.',
+    eyebrow: 'Radiant and hydronic heat',
+    intro:
+      'Hydronic heat moves warmth through water instead of blowing air around, which is why a radiant floor feels different from a furnace. When it is built right it is the most comfortable heat there is. When it is built wrong you get cold zones and a system nobody wants to touch.',
+    signs: {
+      heading: 'What we work on',
+      items: [
+        'In-floor radiant heat, including slab and staple up',
+        'Hot water baseboard and radiators',
+        'Zone manifolds, actuators, and thermostats that stopped controlling anything',
+        'Circulators, mixing valves, and air elimination',
+        'Snowmelt loops for drives and walks',
+        'Systems a previous contractor left half finished',
+      ],
+    },
+    process: {
+      heading: 'How we handle a hydronic system',
+      steps: [
+        {
+          title: 'We map the zones',
+          body: 'Before touching anything we find out what each loop is supposed to heat, because the labels are often wrong or missing. This alone solves a surprising number of complaints.',
+        },
+        {
+          title: 'We find why a zone went cold',
+          body: 'Air in the loop, a stuck actuator, a failed circulator, or water temperature set too low for the floor covering. Each has a different fix and only one of them is expensive.',
+        },
+        {
+          title: 'We build manifolds that can be serviced',
+          body: 'Labeled loops, isolation valves, balancing, and room to get a wrench in. The next person to work on it should be able to read it, even if that person is not us.',
+        },
+        {
+          title: 'We balance the system',
+          body: 'Radiant is a slow, steady heat, and it only feels right when the loops are balanced and the water temperature suits the floor. We set it and explain how to run it.',
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: 'Why is one room on my radiant floor always cold?',
+        a: 'Most often that loop has air in it or its actuator is not opening. Both are ordinary repairs. Occasionally the loop was run too long during construction, which limits how much heat it can deliver, and that is a harder conversation.',
+      },
+      {
+        q: 'Can I add radiant heat to an existing house?',
+        a: 'Sometimes. A basement slab, an addition, or a bathroom is usually workable. Retrofitting an entire finished house is a large project, and we will tell you plainly when a different approach makes more sense for the money.',
+      },
+      {
+        q: 'Is radiant floor heat expensive to run?',
+        a: 'It runs at lower water temperatures than baseboard, which suits a condensing boiler and helps efficiency. Comfort at a lower thermostat setting is part of the appeal, since warm floors make a room feel warmer than the air temperature suggests.',
+      },
+      {
+        q: 'Do you work on snowmelt systems?',
+        a: 'Yes. They are hydronic loops with their own controls and sensors, and they need proper glycol protection. We service them and we install them.',
+      },
+    ],
+    gallery: ['radiant-manifold-long', 'radiant-manifold-zones', 'boiler-circulator'],
+  },
+  {
+    slug: 'geothermal',
+    h1: 'Geothermal Heating and Cooling in Longmont, Colorado',
+    title: 'Geothermal Heat Pump Service in Longmont, CO | Ground Source Systems',
+    description:
+      'Geothermal heat pump service, repair, and installation in Longmont, Colorado. Ground source systems, flow centers, and loop work. Call (303) 536-8922.',
+    eyebrow: 'Geothermal',
+    intro:
+      'A geothermal system pulls heat from the ground instead of the outdoor air, which is why it holds its efficiency on the coldest night of the year. The systems are excellent and the equipment is uncommon, so most homeowners with one struggle to find anybody willing to work on it. We work on them.',
+    signs: {
+      heading: 'What we do with ground source systems',
+      items: [
+        'Diagnose and repair geothermal heat pumps',
+        'Service flow centers, loop pumps, and pressure problems',
+        'Track down loop flow issues and air in the ground loop',
+        'Replace failed circulators and controls',
+        'Annual maintenance for ground source equipment',
+        'Replace aging units while keeping the existing ground loop',
+      ],
+    },
+    process: {
+      heading: 'How a geothermal call goes',
+      steps: [
+        {
+          title: 'We separate the loop from the equipment',
+          body: 'A geothermal system has two halves: the heat pump inside and the loop in the ground. Most problems are on the inside half, and knowing which side is failing saves you from an unnecessary excavation conversation.',
+        },
+        {
+          title: 'We check flow before we check refrigerant',
+          body: 'Poor loop flow looks like a dozen other faults. We check the flow center, the circulators, and the loop pressure first, because a pump or a slug of air explains most of what people assume is a dead compressor.',
+        },
+        {
+          title: 'You get the price and the reasoning',
+          body: 'These systems are unfamiliar to most homeowners, so we explain what failed and why in terms you can repeat to somebody else. Then you approve the price.',
+        },
+        {
+          title: 'We verify performance in the mode you need',
+          body: 'We run the system and confirm it is actually moving heat, in heating or cooling depending on the season, before we call it fixed.',
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: 'My geothermal system was installed years ago and nobody will service it. Can you help?',
+        a: 'That is a common call for us. The ground loop typically outlives several generations of equipment, so an old system is usually worth servicing rather than abandoning. Call the shop and tell us what brand is on the cabinet.',
+      },
+      {
+        q: 'How long does a ground loop last?',
+        a: 'The buried loop is the durable part of the system and is generally expected to last for decades, far longer than the heat pump connected to it. That is why replacing the indoor unit while keeping the existing loop is often the sensible move.',
+      },
+      {
+        q: 'Is geothermal worth it in Colorado?',
+        a: 'The efficiency case is strongest where winters are long, which describes it here. The tradeoff is the up front cost of putting loops in the ground. If the loop already exists on your property, the math changes completely in geothermal favor.',
+      },
+      {
+        q: 'Do you install new geothermal systems, or only service them?',
+        a: 'Call the shop and tell us about your property and what you are trying to do. New ground loop work involves drilling or excavation partners, and we will be straight with you about scope before anyone commits.',
+      },
+    ],
+    gallery: ['geothermal-heat-pump-unit', 'geothermal-flow-center', 'geothermal-loop-pumps'],
+  },
+  {
     slug: 'water-heaters',
     h1: 'Water Heater Repair and Replacement in Longmont, Colorado',
     title: 'Water Heater Repair & Installation in Longmont, CO | Tank and Tankless',

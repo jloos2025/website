@@ -41,6 +41,30 @@ export const business = {
       go: 'Furnace installation details',
     },
     {
+      slug: 'heat-pumps',
+      title: 'Heat Pumps',
+      blurb: 'Ductless mini-splits and whole-home heat pumps that heat and cool from one system, including cold climate models built for Colorado winters.',
+      go: 'Heat pump details',
+    },
+    {
+      slug: 'boilers',
+      title: 'Boilers',
+      blurb: 'Repair and replacement for hot water boilers and combi units, including the near-boiler piping most companies would rather not touch.',
+      go: 'Boiler details',
+    },
+    {
+      slug: 'radiant-heating',
+      title: 'Radiant & Hydronic Heat',
+      blurb: 'In-floor radiant, baseboard, and zoned hydronic systems. We build the manifolds and we fix the ones that were built wrong.',
+      go: 'Radiant heating details',
+    },
+    {
+      slug: 'geothermal',
+      title: 'Geothermal',
+      blurb: 'Ground source heat pumps, flow centers, and loop work. Very few companies on the Front Range service these. We do.',
+      go: 'Geothermal details',
+    },
+    {
       slug: 'water-heaters',
       title: 'Water Heaters',
       blurb: 'Repair and replacement for tank and tankless, usually swapped out the same day you call.',

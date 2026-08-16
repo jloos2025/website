@@ -5,6 +5,8 @@ export const categories = [
   { id: 'cooling', label: 'Air conditioning' },
   { id: 'ductless', label: 'Ductless mini-splits' },
   { id: 'heating', label: 'Furnaces' },
+  { id: 'boilers', label: 'Boilers & radiant' },
+  { id: 'geothermal', label: 'Geothermal' },
   { id: 'water', label: 'Water heaters' },
   { id: 'service', label: 'Service & tune-ups' },
 ] as const;
@@ -34,6 +36,18 @@ export const photos = [
   { file: 'furnace-insulated-space', category: 'heating', alt: 'Furnace installed in an insulated mechanical space with new venting' },
   { file: 'furnace-and-water-heater', category: 'heating', alt: 'Bosch furnace installed next to a gas water heater in a utility room' },
   { file: 'furnace-bosch-pair', category: 'heating', alt: 'Bosch furnace and water heater installed together with new venting' },
+
+  { file: 'geothermal-heat-pump-unit', category: 'geothermal', alt: 'GeoComfort by Enertech geothermal heat pump installed in a Longmont basement with ground loop piping' },
+  { file: 'geothermal-flow-center', category: 'geothermal', alt: 'Geo-Flo geothermal flow center with two circulators and ground loop lines' },
+  { file: 'geothermal-loop-pumps', category: 'geothermal', alt: 'Geothermal ground loop pumps mounted and piped in a mechanical room' },
+
+  { file: 'boiler-combi-copper', category: 'boilers', alt: 'Wall mounted combi boiler with copper near-boiler piping and expansion tanks' },
+  { file: 'boiler-circulator', category: 'boilers', alt: 'Boiler with circulator pump and control piped in a finished basement' },
+  { file: 'boiler-basement-copper', category: 'boilers', alt: 'Basement boiler with copper risers running to the zones above' },
+  { file: 'boiler-room-expansion-tank', category: 'boilers', alt: 'Boiler room with copper piping and an expansion tank overhead' },
+  { file: 'boiler-tankless-combo', category: 'boilers', alt: 'Combi boiler installed alongside a storage tank for domestic hot water' },
+  { file: 'radiant-manifold-long', category: 'boilers', alt: 'Radiant floor heating manifold with a full row of zone circuits fed by a boiler' },
+  { file: 'radiant-manifold-zones', category: 'boilers', alt: 'Hydronic zone manifold and valves in a mechanical space' },
 
   { file: 'tankless-navien-manifold', category: 'water', alt: 'Wall mounted tankless water heater with a clean copper manifold and expansion tank' },
   { file: 'water-heaters-twin', category: 'water', alt: 'Two water heaters installed side by side with copper piping and new venting' },

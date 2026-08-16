@@ -1,5 +1,6 @@
 ---
 import { business } from '../data/business';
+import { cityPages } from '../data/cities';
 ---
 
 <section class="area section" aria-labelledby="area-h">
@@ -7,11 +8,18 @@ import { business } from '../data/business';
     <span class="eyebrow">Where we drive</span>
     <h2 id="area-h">Based in Longmont. At your door across the Front Range.</h2>
     <p class="area-lede">
-      The shop sits in Longmont and we cover the Front Range from there. If you are in one of these
-      towns, you are in our neighborhood.
+      The shop sits in Longmont and we cover the Front Range from there. Each of these towns has its
+      own housing stock and its own recurring problems, so we wrote up what we run into in each one.
     </p>
     <ul class="towns">
-      {business.towns.map((t) => <li class={t === business.city ? 'home' : undefined}>{t}</li>)}
+      <li class="home">{business.city}</li>
+      {
+        cityPages.map((c) => (
+          <li>
+            <a href={`/hvac/${c.slug}/`}>{c.name}</a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </section>

@@ -458,3 +458,10 @@ body{padding-bottom:4.25rem} /* room for sticky bar */
   font-family:var(--util);font-size:.85rem;font-weight:700;line-height:1;
 }
 .sign-list .warn-tick{background:var(--flame);color:#fff}
+
+/* ============ City pages ============ */
+.city-body{max-width:64ch;color:var(--ink-soft);font-size:1.05rem}
+.city-all{text-align:left;margin-top:1.5rem}
+.towns li a{color:var(--spruce);text-decoration:none}
+.towns li a:hover{text-decoration:underline}
+.towns li:has(a):hover{border-color:var(--copper)}

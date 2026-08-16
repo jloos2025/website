@@ -1,0 +1,41 @@
+---
+import { business } from '../data/business';
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-brand">
+      <span class="name">{business.fullName}</span>
+      <p>
+        Family owned and operated in Longmont, Colorado since {business.foundingYear}. Licensed
+        &amp; insured. {business.license}
+      </p>
+    </div>
+    <div>
+      <h3>Find the shop</h3>
+      <address>
+        {business.address.street}<br />
+        {business.address.city}, {business.address.state}
+        {business.address.zip}<br />
+        <a class="foot-phone" href={`tel:${business.phoneE164}`}>{business.phoneDisplay}</a>
+      </address>
+    </div>
+    <div>
+      <h3>Shop hours</h3>
+      <dl>
+        {
+          business.hoursTable.map(([day, hours]) => (
+            <div>
+              <dt>{day}</dt>
+              <dd>{hours}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+  <p class="fineprint">
+    © {new Date().getFullYear()}
+    {business.fullName} · Placeholder business details for design review
+  </p>
+</footer>

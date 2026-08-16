@@ -1,0 +1,21 @@
+---
+import { business } from '../data/business';
+---
+
+<section class="services section" aria-labelledby="svc-h">
+  <div class="wrap">
+    <span class="eyebrow">What we fix and install</span>
+    <h2 id="svc-h">One call covers the whole mechanical room.</h2>
+    <div class="svc-grid">
+      {
+        business.services.map((s) => (
+          <a class="svc-card" href={`/services/${s.slug}/`}>
+            <h3>{s.title}</h3>
+            <p>{s.blurb}</p>
+            <span class="go">{s.go}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

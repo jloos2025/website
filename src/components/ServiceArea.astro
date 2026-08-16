@@ -1,0 +1,20 @@
+---
+import { business } from '../data/business';
+---
+
+<section class="area section" aria-labelledby="area-h">
+  <div class="wrap">
+    <span class="eyebrow">Where we drive</span>
+    <h2 id="area-h">Based in Longmont. At your door across the St. Vrain Valley.</h2>
+    <p class="area-lede">
+      The shop sits just off Main Street, and everything we serve is a short drive from it. If
+      you're in one of these towns, you're in our neighborhood.
+    </p>
+    <ul class="towns">
+      {business.towns.map((t) => <li class={t === business.city ? 'home' : undefined}>{t}</li>)}
+    </ul>
+    <p class="drive">
+      Not on the list but close? Call anyway — if we can get there in half an hour, we'll come.
+    </p>
+  </div>
+</section>

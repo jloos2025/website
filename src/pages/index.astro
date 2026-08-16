@@ -1,69 +1,22 @@
 ---
-import CallButton from '../components/CallButton.tsx';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import WhyUs from '../components/WhyUs.astro';
+import ServiceArea from '../components/ServiceArea.astro';
+import Reviews from '../components/Reviews.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { business } from '../data/business';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex" />
-    <title>New website coming soon</title>
-    <style>
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        font-family: system-ui, sans-serif;
-        background: #0f172a;
-        color: #f1f5f9;
-        text-align: center;
-      }
-      p {
-        color: #94a3b8;
-      }
-      main :global(.call-btn) {
-        display: inline-flex;
-        flex-direction: column;
-        gap: 0.15rem;
-        margin-top: 1.5rem;
-        padding: 0.9rem 2rem;
-        border-radius: 0.75rem;
-        background: #dc2626;
-        color: #fff;
-        text-decoration: none;
-        animation: pulse 2.5s ease-in-out infinite;
-      }
-      main :global(.call-btn.nudge) {
-        background: #16a34a;
-      }
-      main :global(.call-btn-label) {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-      }
-      main :global(.call-btn-number) {
-        font-size: 1.25rem;
-        font-weight: 700;
-      }
-      @keyframes pulse {
-        50% {
-          transform: scale(1.04);
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        main :global(.call-btn) {
-          animation: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>Our new website is on the way</h1>
-      <p>Call or text us in the meantime &mdash; we're still open for business.</p>
-      <CallButton client:idle phone="+13035550199" display="(303) 555-0199" />
-    </main>
-  </body>
-</html>
+<Base
+  title={`${business.fullName} — Furnace & AC Repair in Longmont, CO`}
+  description={`Family-run HVAC repair and installation in Longmont, Colorado since ${business.foundingYear}. AC repair, furnace repair, water heaters, and seasonal tune-ups. Call ${business.phoneDisplay}.`}
+>
+  <Hero />
+  <Services />
+  <WhyUs />
+  <ServiceArea />
+  <Reviews />
+  <FinalCta />
+</Base>

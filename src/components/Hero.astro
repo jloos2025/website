@@ -1,0 +1,44 @@
+---
+import PhoneIcon from './PhoneIcon.astro';
+import { business } from '../data/business';
+---
+
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">Family owned &amp; operated · Longmont since {business.foundingYear}</span>
+      <h1 id="hero-h">The heating &amp; air family your neighbors already call.</h1>
+      <p class="lede">
+        Furnace out in January? AC dead in an August heat wave? Call the shop and a Loos picks up —
+        then a Loos shows up. Three generations of fixing Longmont's furnaces, ACs, and water
+        heaters.
+      </p>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+      <p class="call-note">Same-day service most days. A real person answers.</p>
+    </div>
+
+    <!-- Signature element: the furnace service sticker -->
+    <div
+      class="sticker"
+      aria-label="Example of the service sticker we leave on every furnace, with service dates from 1979 to 2026"
+    >
+      <p class="stk-head">Serviced by {business.fullName}</p>
+      <p class="stk-sub">Longmont, Colorado · {business.phoneDisplay}</p>
+      <table>
+        <thead>
+          <tr><th scope="col">Date</th><th scope="col">Work done</th><th scope="col">Tech</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>10 / 12 / 79</td><td class="svc">furnace tune-up</td><td>R.L.</td></tr>
+          <tr><td>6 / 3 / 94</td><td class="svc">new AC install</td><td>R.L.</td></tr>
+          <tr><td>11 / 20 / 08</td><td class="svc">blower motor</td><td>D.L.</td></tr>
+          <tr><td>7 / 29 / 26</td><td class="svc">tune-up — all good</td><td>J.L.</td></tr>
+        </tbody>
+      </table>
+      <p class="stk-foot">You'll find one of these on half the furnaces in town.</p>
+    </div>
+  </div>
+</section>

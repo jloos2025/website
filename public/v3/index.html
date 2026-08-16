@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loos &amp; Sons Heating &amp; Air — Furnace &amp; AC Repair and Installation in Longmont, CO</title>
+<meta name="description" content="Family-run heating and cooling in Longmont, Colorado. AC and furnace repair, new system installation, water heaters, and seasonal tune-ups. Call (303) 555-0199.">
+<style>
+  /* ---------- Tokens ---------- */
+  :root {
+    --ink: #1E2A28;          /* deep spruce slate — evening thermostat */
+    --ink-deep: #17211F;
+    --porcelain: #F6F7F5;    /* furnace-cabinet enamel */
+    --paper: #FFFFFF;
+    --copper: #BE6A3C;       /* lineset copper */
+    --copper-deep: #9E5027;
+    --glacial: #8FB6BD;      /* supply air */
+    --glacial-deep: #4E8894;
+    --text: #24312F;
+    --muted: #5C6B68;
+    --muted-on-ink: #A8B5B2;
+    --line: #E2E6E3;
+    --line-on-ink: #33413E;
+
+    --display: "Avenir Next", Avenir, Futura, "Century Gothic", "Trebuchet MS", "Segoe UI", sans-serif;
+    --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+    --measure: 34rem;
+    --wrap: 68rem;
+    --radius: 10px;
+  }
+
+  /* ---------- Reset-ish ---------- */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--porcelain);
+    /* room for the fixed call bar on small screens */
+    padding-bottom: 4.5rem;
+  }
+  img, svg { max-width: 100%; }
+  a { color: inherit; }
+  ul { list-style: none; }
+
+  :focus-visible {
+    outline: 3px solid var(--glacial-deep);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--ink);
+    color: var(--porcelain);
+    padding: .6rem 1rem;
+    z-index: 100;
+  }
+  .skip-link:focus { left: .5rem; top: .5rem; }
+
+  .wrap {
+    max-width: var(--wrap);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--copper-deep);
+    display: block;
+    margin-bottom: .9rem;
+  }
+  .on-ink .eyebrow { color: var(--glacial); }
+
+  h1, h2, h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+  }
+  h2 { font-size: clamp(1.6rem, 1.2rem + 2vw, 2.3rem); max-width: 24ch; }
+
+  .section { padding-block: 3.5rem; }
+  .section-head { margin-bottom: 2rem; }
+  .section-head p {
+    margin-top: .75rem;
+    max-width: var(--measure);
+    color: var(--muted);
+  }
+
+  /* The comfort band: cool → warm hairline used as the page's only divider */
+  .band {
+    height: 3px;
+    border: 0;
+    background: linear-gradient(90deg, var(--glacial) 0%, var(--glacial-deep) 35%, var(--copper) 75%, var(--copper-deep) 100%);
+    opacity: .85;
+  }
+
+  /* ---------- Header ---------- */
+  .site-header { background: var(--porcelain); }
+  .site-header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1rem;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    text-decoration: none;
+  }
+  /* CSS-drawn logo placeholder: a small setpoint dial */
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    flex: none;
+    border: 2px solid var(--ink);
+    position: relative;
+    background: conic-gradient(from 210deg, var(--glacial) 0deg, var(--copper) 240deg, transparent 240deg);
+  }
+  .brand-mark::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    background: var(--porcelain);
+  }
+  .brand-name {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+  .brand-name small {
+    display: block;
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: .62rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .header-call {
+    font-family: var(--mono);
+    font-size: .95rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    padding: .5rem 1rem;
+    white-space: nowrap;
+  }
+  .header-call:hover { background: var(--ink); color: var(--porcelain); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: linear-gradient(180deg, var(--ink) 0%, var(--ink-deep) 100%);
+    color: var(--porcelain);
+  }
+  .hero .wrap {
+    display: grid;
+    gap: 2.5rem;
+    padding-block: 3.25rem 3.75rem;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(2.1rem, 1.4rem + 4vw, 3.4rem);
+    max-width: 15ch;
+  }
+  .hero-sub {
+    margin-top: 1.1rem;
+    max-width: var(--measure);
+    color: var(--muted-on-ink);
+    font-size: 1.05rem;
+  }
+  .hero-cta {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+  .call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    background: var(--porcelain);
+    color: var(--ink-deep);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: .95rem 1.5rem;
+    border-radius: 999px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.35);
+  }
+  .call-btn:hover { background: #fff; }
+  .call-btn .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--copper);
+    flex: none;
+  }
+  .hero-note {
+    font-size: .9rem;
+    color: var(--muted-on-ink);
+  }
+  .hero-trust {
+    margin-top: 2.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line-on-ink);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem 1.6rem;
+    font-family: var(--mono);
+    font-size: .74rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted-on-ink);
+  }
+
+  /* ---------- Signature: the setpoint dial ---------- */
+  .dial-holder { display: flex; justify-content: center; }
+  .dial {
+    position: relative;
+    width: min(300px, 74vw);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 26%, #2C3B38 0%, var(--ink-deep) 68%);
+    box-shadow:
+      0 24px 60px rgba(0,0,0,.45),
+      inset 0 1px 0 rgba(255,255,255,.08);
+  }
+  .dial-ticks {
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    background: repeating-conic-gradient(
+      from 0deg,
+      rgba(246,247,245,.38) 0deg .7deg,
+      transparent .7deg 10deg
+    );
+    -webkit-mask: radial-gradient(closest-side, transparent 84%, #000 85%);
+    mask: radial-gradient(closest-side, transparent 84%, #000 85%);
+  }
+  .dial-arc {
+    position: absolute;
+    inset: 24px;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 150deg,
+      var(--glacial) 0deg,
+      var(--glacial-deep) 90deg,
+      var(--copper) 210deg,
+      var(--copper-deep) 240deg,
+      transparent 240deg
+    );
+    -webkit-mask: radial-gradient(closest-side, transparent 87%, #000 88%);
+    mask: radial-gradient(closest-side, transparent 87%, #000 88%);
+  }
+  .dial-needle {
+    position: absolute;
+    left: calc(50% - 1.5px);
+    bottom: 50%;
+    width: 3px;
+    height: 37%;
+    border-radius: 3px;
+    background: linear-gradient(180deg, var(--copper) 0%, rgba(190,106,60,0) 100%);
+    transform-origin: 50% 100%;
+    transform: rotate(26deg);
+    animation: settle 1.8s cubic-bezier(.34, 1.3, .45, 1) both;
+  }
+  @keyframes settle {
+    0%   { transform: rotate(-58deg); }
+    100% { transform: rotate(26deg); }
+  }
+  .dial-face {
+    position: absolute;
+    inset: 22%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 30%, #26332F 0%, var(--ink-deep) 75%);
+    box-shadow: 0 10px 24px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .15rem;
+  }
+  .dial-temp {
+    font-family: var(--mono);
+    font-size: clamp(2.6rem, 2rem + 3vw, 3.4rem);
+    font-weight: 600;
+    color: var(--porcelain);
+    letter-spacing: -.02em;
+  }
+  .dial-label {
+    font-family: var(--mono);
+    font-size: .62rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--glacial);
+  }
+
+  /* ---------- Services ---------- */
+  .services-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+  .service-card {
+    display: block;
+    text-decoration: none;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.35rem 1.35rem 1.25rem;
+    transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  }
+  .service-card:hover {
+    border-color: var(--copper);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(30,42,40,.09);
+  }
+  .service-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    font-family: var(--mono);
+    font-size: .66rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .7rem;
+  }
+  .service-tag::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--tag-color, var(--muted));
+  }
+  .tag-cool  { --tag-color: var(--glacial-deep); }
+  .tag-heat  { --tag-color: var(--copper); }
+  .tag-water { --tag-color: var(--ink); }
+  .tag-tune  { --tag-color: #7A8C5A; }
+  .service-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: .35rem;
+  }
+  .service-card p {
+    color: var(--muted);
+    font-size: .95rem;
+  }
+  .service-card .go {
+    display: inline-block;
+    margin-top: .8rem;
+    font-family: var(--mono);
+    font-size: .78rem;
+    color: var(--copper-deep);
+  }
+
+  /* ---------- Why us ---------- */
+  .why {
+    background: var(--paper);
+    border-block: 1px solid var(--line);
+  }
+  .why-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+  .why-list { display: grid; gap: 1.6rem; }
+  .why-item h3 { font-size: 1.08rem; margin-bottom: .3rem; }
+  .why-item p { color: var(--muted); font-size: .97rem; max-width: var(--measure); }
+  .why-item .stat {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--glacial-deep);
+    display: block;
+    margin-bottom: .35rem;
+  }
+  /* CSS-drawn photo placeholder: a lineset running to a condenser */
+  .photo-ph {
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background:
+      repeating-linear-gradient(-45deg, rgba(30,42,40,.045) 0 10px, transparent 10px 20px),
+      linear-gradient(180deg, #EFF2F0 0%, #E5EAE7 100%);
+    min-height: 260px;
+    position: relative;
+    overflow: hidden;
+  }
+  .photo-ph::before {
+    /* condenser unit */
+    content: "";
+    position: absolute;
+    left: 12%;
+    bottom: 14%;
+    width: 34%;
+    aspect-ratio: 1 / 1.1;
+    border-radius: 8px;
+    border: 2.5px solid var(--ink);
+    background:
+      repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 9px) center / 70% 55% no-repeat,
+      var(--porcelain);
+  }
+  .photo-ph::after {
+    /* copper lineset */
+    content: "";
+    position: absolute;
+    left: 46%;
+    bottom: 32%;
+    width: 44%;
+    height: 3.5px;
+    background: var(--copper);
+    border-radius: 3px;
+    box-shadow: 0 9px 0 var(--glacial-deep);
+  }
+  .photo-cap {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: .6rem;
+  }
+
+  /* ---------- Service area ---------- */
+  .area-towns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .55rem;
+    max-width: 42rem;
+  }
+  .area-towns li {
+    font-family: var(--mono);
+    font-size: .82rem;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    border-radius: 999px;
+    padding: .4rem .95rem;
+    color: var(--text);
+  }
+  .area-towns li.home {
+    border-color: var(--copper);
+    color: var(--copper-deep);
+  }
+  .area-note {
+    margin-top: 1.4rem;
+    color: var(--muted);
+    max-width: var(--measure);
+    font-size: .97rem;
+  }
+
+  /* ---------- Reviews ---------- */
+  .reviews {
+    background: var(--paper);
+    border-block: 1px solid var(--line);
+  }
+  .reviews-grid { display: grid; gap: 1rem; }
+  .review {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--porcelain);
+    padding: 1.5rem 1.4rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .review blockquote {
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+  .review blockquote::before { content: "\201C"; color: var(--copper); }
+  .review blockquote::after { content: "\201D"; color: var(--copper); }
+  .review figcaption {
+    font-family: var(--mono);
+    font-size: .76rem;
+    letter-spacing: .08em;
+    color: var(--muted);
+    margin-top: auto;
+  }
+
+  /* ---------- Closing CTA ---------- */
+  .closer {
+    background: linear-gradient(180deg, var(--ink) 0%, var(--ink-deep) 100%);
+    color: var(--porcelain);
+  }
+  .closer .wrap {
+    padding-block: 3.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+  }
+  .closer h2 { max-width: 22ch; }
+  .closer p {
+    color: var(--muted-on-ink);
+    max-width: var(--measure);
+  }
+
+  /* ---------- Footer ---------- */
+  .site-footer {
+    background: var(--ink-deep);
+    color: var(--muted-on-ink);
+    border-top: 1px solid var(--line-on-ink);
+  }
+  .site-footer .wrap {
+    padding-block: 2.5rem 2rem;
+    display: grid;
+    gap: 1.75rem;
+  }
+  .site-footer h2 {
+    font-size: 1.05rem;
+    color: var(--porcelain);
+  }
+  .site-footer address {
+    font-style: normal;
+    line-height: 1.7;
+    font-size: .93rem;
+  }
+  .site-footer a { color: var(--porcelain); }
+  .hours {
+    font-family: var(--mono);
+    font-size: .84rem;
+    line-height: 1.9;
+  }
+  .hours dt {
+    color: var(--porcelain);
+    font-size: .7rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    margin-bottom: .2rem;
+  }
+  .fineprint {
+    font-size: .78rem;
+    border-top: 1px solid var(--line-on-ink);
+    padding-top: 1.25rem;
+  }
+
+  /* ---------- Fixed mobile call bar ---------- */
+  .call-bar {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 50;
+    padding: .6rem .75rem calc(.6rem + env(safe-area-inset-bottom, 0px));
+    background: rgba(23, 33, 31, .96);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid var(--line-on-ink);
+  }
+  .call-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    background: var(--copper);
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 1.02rem;
+    padding: .85rem 1rem;
+    border-radius: 999px;
+  }
+  .call-bar a:active { background: var(--copper-deep); }
+
+  /* ---------- Larger screens ---------- */
+  @media (min-width: 760px) {
+    body { padding-bottom: 0; }
+    .call-bar { display: none; }
+    .section { padding-block: 5rem; }
+    .hero .wrap {
+      grid-template-columns: 1.15fr .85fr;
+      padding-block: 5rem 5.5rem;
+    }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1.1fr .9fr; align-items: start; }
+    .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+    .site-footer .wrap { grid-template-columns: 1.2fr 1fr 1fr; }
+    .site-footer .fineprint { grid-column: 1 / -1; }
+  }
+  @media (min-width: 1000px) {
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* ---------- Reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .dial-needle { animation: none; }
+    .service-card, .service-card:hover { transition: none; transform: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">Loos &amp; Sons
+        <small>Heating &amp; Air · Longmont, CO</small>
+      </span>
+    </a>
+    <a class="header-call" href="tel:+13035550199">(303) 555-0199</a>
+  </div>
+</header>
+
+<hr class="band" aria-hidden="true">
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero on-ink" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Furnaces · Air Conditioning · Water Heaters</span>
+        <h1 id="hero-title">Heating and cooling, done to the degree.</h1>
+        <p class="hero-sub">Loos &amp; Sons repairs and installs furnaces, air conditioners, and water heaters across Longmont and the towns around it — with written quotes before any work starts and technicians who explain exactly what they're doing.</p>
+        <div class="hero-cta">
+          <a class="call-btn" href="tel:+13035550199"><span class="dot" aria-hidden="true"></span>Call (303) 555-0199</a>
+          <span class="hero-note">Same-day repair visits, most days.</span>
+        </div>
+        <ul class="hero-trust">
+          <li>Licensed &amp; insured</li>
+          <li>Family-run</li>
+          <li>Quotes in writing</li>
+        </ul>
+      </div>
+      <div class="dial-holder">
+        <div class="dial" role="img" aria-label="Thermostat dial holding steady at 72 degrees">
+          <div class="dial-ticks"></div>
+          <div class="dial-arc"></div>
+          <div class="dial-needle"></div>
+          <div class="dial-face">
+            <span class="dial-temp">72&deg;</span>
+            <span class="dial-label">Holding steady</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2 id="services-title">Every system that heats, cools, or warms your water.</h2>
+        <p>Repair when repair makes sense. Replacement when it doesn't — and we'll show you the math either way.</p>
+      </div>
+      <div class="services-grid">
+        <a class="service-card" href="/services/ac-repair/">
+          <span class="service-tag tag-cool">Cooling</span>
+          <h3>AC Repair</h3>
+          <p>Not cooling, short-cycling, or leaking? Diagnosed at a flat fee, fixed the same visit whenever parts allow.</p>
+          <span class="go">Repair details &rarr;</span>
+        </a>
+        <a class="service-card" href="/services/ac-installation/">
+          <span class="service-tag tag-cool">Cooling</span>
+          <h3>AC Installation</h3>
+          <p>Right-sized for your square footage — not upsold past it — quoted in writing and installed clean.</p>
+          <span class="go">Installation details &rarr;</span>
+        </a>
+        <a class="service-card" href="/services/furnace-repair/">
+          <span class="service-tag tag-heat">Heating</span>
+          <h3>Furnace Repair</h3>
+          <p>No heat is urgent in a Colorado winter. We hold same-day slots for it from October through April.</p>
+          <span class="go">Repair details &rarr;</span>
+        </a>
+        <a class="service-card" href="/services/furnace-installation/">
+          <span class="service-tag tag-heat">Heating</span>
+          <h3>Furnace Installation</h3>
+          <p>Replace on your schedule, not mid-January's. Efficiency options explained in plain numbers.</p>
+          <span class="go">Installation details &rarr;</span>
+        </a>
+        <a class="service-card" href="/services/water-heaters/">
+          <span class="service-tag tag-water">Water</span>
+          <h3>Water Heaters</h3>
+          <p>Tank and tankless — repair, replacement, and a straight answer on which one your house actually needs.</p>
+          <span class="go">Water heater details &rarr;</span>
+        </a>
+        <a class="service-card" href="/services/seasonal-tune-ups/">
+          <span class="service-tag tag-tune">Maintenance</span>
+          <h3>Seasonal Tune-Ups</h3>
+          <p>Cooling checked in spring, heating in fall — so the next season starts without a surprise.</p>
+          <span class="go">Tune-up details &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why us -->
+  <section class="section why" aria-labelledby="why-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Why homeowners call us back</span>
+        <h2 id="why-title">The contractor version of a well-set thermostat.</h2>
+        <p>Predictable, precise, and quiet about it. Here's what that means in practice.</p>
+      </div>
+      <div class="why-grid">
+        <ul class="why-list">
+          <li class="why-item">
+            <span class="stat">Quoted → invoiced, same number</span>
+            <h3>The price is set before the work starts.</h3>
+            <p>Every job gets a written quote first. The number we quote is the number on the invoice — no discovering the real price at the end.</p>
+          </li>
+          <li class="why-item">
+            <span class="stat">Zero commission</span>
+            <h3>Technicians, not salespeople.</h3>
+            <p>Nobody on our crew earns a cut for selling you a bigger system. If a $280 repair buys your furnace three more winters, that's what we'll recommend.</p>
+          </li>
+          <li class="why-item">
+            <span class="stat">Second generation</span>
+            <h3>Family-run since 1994.</h3>
+            <p>Started by John Loos, run today with his sons. The person who answers the phone knows the person who shows up at your door.</p>
+          </li>
+          <li class="why-item">
+            <span class="stat">Shoe covers → haul-away</span>
+            <h3>Your house, left the way we found it.</h3>
+            <p>Drop cloths down, shoe covers on, old equipment hauled off. The only sign we were there is a house that holds temperature.</p>
+          </li>
+        </ul>
+        <div>
+          <div class="photo-ph" role="img" aria-label="Placeholder image: a Loos and Sons technician finishing a condenser installation"></div>
+          <p class="photo-cap">Photo: install crew, coming soon</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service area -->
+  <section class="section" aria-labelledby="area-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Where we work</span>
+        <h2 id="area-title">Based in Longmont. In your driveway within the hour, most of the time.</h2>
+      </div>
+      <ul class="area-towns">
+        <li class="home">Longmont — home base</li>
+        <li>Niwot</li>
+        <li>Gunbarrel</li>
+        <li>Lyons</li>
+        <li>Berthoud</li>
+        <li>Mead</li>
+        <li>Firestone</li>
+        <li>Frederick</li>
+        <li>Erie</li>
+      </ul>
+      <p class="area-note">Same diagnostic fee for every town on this list — no trip charges, no mileage math. If your town isn't here, call anyway; we're often close.</p>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section reviews" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">From our customers</span>
+        <h2 id="reviews-title">What it's like when we've been to your house.</h2>
+      </div>
+      <div class="reviews-grid">
+        <figure class="review">
+          <blockquote>Our AC died on a 98-degree Friday. They were here by four, had it running by five, and the bill matched the quote to the dollar.</blockquote>
+          <figcaption>Dana R. · Longmont</figcaption>
+        </figure>
+        <figure class="review">
+          <blockquote>They quoted a repair when two other companies quoted a whole new furnace. That's who gets to install the new one when the day actually comes.</blockquote>
+          <figcaption>Mark &amp; Ellie T. · Berthoud</figcaption>
+        </figure>
+        <figure class="review">
+          <blockquote>New furnace and AC, in and out in a day. You'd never know they were here — except the house finally holds 72 in every room.</blockquote>
+          <figcaption>Priya S. · Niwot</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="closer on-ink" aria-labelledby="closer-title">
+    <div class="wrap">
+      <span class="eyebrow">One call does it</span>
+      <h2 id="closer-title">Whatever the thermostat says, we can get it to what you want.</h2>
+      <p>Broken this minute or planning a replacement for next season — start with a phone call. A real person answers, and they can usually tell you the cost range before we roll a truck.</p>
+      <a class="call-btn" href="tel:+13035550199"><span class="dot" aria-hidden="true"></span>Call (303) 555-0199</a>
+    </div>
+  </section>
+
+</main>
+
+<hr class="band" aria-hidden="true">
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h2>Loos &amp; Sons Heating &amp; Air</h2>
+      <address>
+        1234 S Main Street, Unit B<br>
+        Longmont, CO 80501<br>
+        <a href="tel:+13035550199">(303) 555-0199</a>
+      </address>
+    </div>
+    <dl class="hours">
+      <dt>Office hours</dt>
+      <dd>Mon–Fri · 7:00a – 6:00p</dd>
+      <dd>Saturday · 8:00a – 2:00p</dd>
+      <dd>Sunday · Closed</dd>
+    </dl>
+    <dl class="hours">
+      <dt>Emergencies</dt>
+      <dd>No heat / no cooling</dd>
+      <dd>After-hours line: same number</dd>
+    </dl>
+    <p class="fineprint">&copy; 2026 Loos &amp; Sons Heating &amp; Air · Licensed &amp; insured in Colorado · License #PLACEHOLDER</p>
+  </div>
+</footer>
+
+<!-- One-tap call, always reachable on mobile -->
+<nav class="call-bar" aria-label="Call now">
+  <a href="tel:+13035550199">Call (303) 555-0199</a>
+</nav>
+
+</body>
+</html>

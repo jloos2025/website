@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loos &amp; Sons Heating &amp; Air — AC &amp; Furnace Repair in Longmont, CO</title>
+<meta name="description" content="Family-run HVAC in Longmont, Colorado. Same-day AC repair, furnace repair, water heaters, and installations. Call (303) 555-0199 — help is rolling.">
+<style>
+  /* ============ Tokens ============ */
+  :root{
+    --dusk:#12344D;
+    --dusk-deep:#0C2537;
+    --ink:#0F1E28;
+    --sky:#EDF4F8;
+    --paper:#FFFFFF;
+    --flare:#FF9633;
+    --flare-deep:#E97F16;
+    --flare-text:#A6500A;
+    --signal:#3ED47E;
+    --mist:rgba(255,255,255,.72);
+    --hairline:rgba(15,30,40,.14);
+    --hairline-light:rgba(255,255,255,.22);
+    --font-display:"Avenir Next Condensed","Helvetica Neue Condensed","Arial Narrow","Franklin Gothic Medium",Impact,sans-serif;
+    --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+
+  /* ============ Reset / base ============ */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:72px; /* room for fixed mobile call bar */
+  }
+  img{max-width:100%}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--flare);outline-offset:3px;border-radius:2px}
+
+  .skip-link{
+    position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;
+    padding:.6rem 1rem;z-index:200;font-weight:600;
+  }
+  .skip-link:focus{left:8px;top:8px}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+  h1,h2,h3,.display{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    letter-spacing:.015em;
+    line-height:1.04;
+    font-weight:700;
+  }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    display:inline-block;
+  }
+
+  /* ============ Header ============ */
+  .site-header{
+    background:var(--dusk-deep);
+    color:#fff;
+    position:sticky;top:0;z-index:100;
+    border-bottom:1px solid var(--hairline-light);
+  }
+  .site-header .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:10px;padding-bottom:10px;gap:12px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo-block{
+    width:42px;height:42px;flex:0 0 42px;
+    background:linear-gradient(135deg,var(--flare) 0 50%,#FFB765 50% 100%);
+    color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);font-weight:700;font-size:1.05rem;
+    letter-spacing:.02em;
+    border-radius:6px;
+  }
+  .brand-name{font-family:var(--font-display);text-transform:uppercase;font-size:1.05rem;line-height:1.1}
+  .brand-name small{display:block;font-family:var(--font-mono);text-transform:none;font-size:.6rem;letter-spacing:.12em;color:var(--mist);font-weight:400}
+  .header-call{
+    display:none;
+    background:var(--flare);color:var(--ink);text-decoration:none;
+    font-family:var(--font-display);text-transform:uppercase;
+    font-size:1.05rem;letter-spacing:.03em;
+    padding:.55rem 1.1rem;border-radius:8px;
+    box-shadow:0 2px 0 var(--flare-deep);
+  }
+  .header-call:hover{background:#FFA84F}
+  .header-tagline{display:none;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;color:var(--mist)}
+
+  /* ============ Hero ============ */
+  .hero{
+    background:linear-gradient(180deg,var(--dusk-deep) 0%,var(--dusk) 78%,#1A4560 100%);
+    color:#fff;
+    padding:52px 0 60px;
+  }
+  .hero-grid{display:grid;gap:36px}
+  .hero .eyebrow{color:var(--signal);margin-bottom:14px}
+  .hero h1{font-size:clamp(2.5rem,7.5vw,4.4rem);max-width:16ch}
+  .hero-sub{
+    margin-top:18px;max-width:44ch;color:var(--mist);font-size:1.06rem;
+  }
+  .hero-cta{margin-top:28px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+  .call-btn{
+    display:inline-flex;align-items:center;gap:12px;
+    background:var(--flare);color:var(--ink);text-decoration:none;
+    font-family:var(--font-display);text-transform:uppercase;
+    font-size:clamp(1.35rem,4.5vw,1.7rem);letter-spacing:.02em;
+    padding:.85rem 1.5rem;border-radius:10px;
+    box-shadow:0 3px 0 var(--flare-deep),0 10px 30px rgba(0,0,0,.35);
+  }
+  .call-btn:hover{background:#FFA84F}
+  .call-btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--flare-deep)}
+  .call-btn .phone-glyph{
+    width:24px;height:24px;flex:0 0 24px;
+    background:var(--ink);
+    clip-path:path("M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z");
+  }
+  .hero-cta small{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;color:var(--mist)}
+
+  /* --- Signature: dispatch ticket --- */
+  .ticket{
+    background:#0B1E2B;
+    border:1px solid var(--hairline-light);
+    border-radius:12px;
+    padding:20px 22px 18px;
+    max-width:430px;
+    width:100%;
+    font-family:var(--font-mono);
+    box-shadow:0 18px 40px rgba(0,0,0,.35);
+  }
+  .ticket-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--mist);
+    border-bottom:1px solid var(--hairline-light);
+    padding-bottom:10px;
+  }
+  .ticket-status{
+    display:flex;align-items:center;gap:14px;
+    padding:14px 0 4px;
+  }
+  .pulse{
+    width:11px;height:11px;flex:0 0 11px;border-radius:50%;
+    background:var(--signal);
+    box-shadow:0 0 0 0 rgba(62,212,126,.55);
+    animation:pulse 2.2s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(62,212,126,.55)}
+    70%{box-shadow:0 0 0 12px rgba(62,212,126,0)}
+    100%{box-shadow:0 0 0 0 rgba(62,212,126,0)}
+  }
+  .ticket-status strong{
+    font-family:var(--font-display);text-transform:uppercase;
+    font-size:1.25rem;letter-spacing:.03em;color:#fff;font-weight:700;
+  }
+  .route{
+    position:relative;height:34px;margin:10px 0 4px;
+    border-bottom:2px dashed rgba(255,255,255,.35);
+    overflow:hidden;
+  }
+  .truck{
+    position:absolute;bottom:3px;left:-52px;width:44px;height:20px;
+    animation:roll 7s linear infinite;
+  }
+  .truck .box{
+    position:absolute;left:0;bottom:6px;width:27px;height:13px;
+    background:#fff;border-radius:2px;
+  }
+  .truck .cab{
+    position:absolute;left:28px;bottom:6px;width:12px;height:10px;
+    background:var(--flare);border-radius:2px 5px 2px 2px;
+  }
+  .truck .w1,.truck .w2{
+    position:absolute;bottom:1px;width:7px;height:7px;border-radius:50%;
+    background:#0B1E2B;border:2px solid #fff;
+  }
+  .truck .w1{left:5px}
+  .truck .w2{left:30px}
+  @keyframes roll{
+    from{left:-52px}
+    to{left:104%}
+  }
+  .ticket-foot{
+    display:flex;justify-content:space-between;gap:10px;
+    font-size:.72rem;letter-spacing:.08em;color:var(--mist);
+    padding-top:8px;
+  }
+  .ticket-foot b{color:#fff;font-weight:700}
+  @media (prefers-reduced-motion:reduce){
+    .truck{animation:none;left:40%}
+    .pulse{animation:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ============ Sections (shared) ============ */
+  .section{padding:60px 0}
+  .section-head{margin-bottom:32px;max-width:60ch}
+  .section-head .eyebrow{color:var(--flare-text);margin-bottom:8px}
+  .section-head h2{font-size:clamp(1.9rem,5vw,2.8rem)}
+  .section-head p{margin-top:10px;color:rgba(15,30,40,.72)}
+
+  /* ============ Services ============ */
+  .services{background:var(--paper)}
+  .service-grid{display:grid;gap:14px;grid-template-columns:1fr}
+  .service-card{
+    display:block;text-decoration:none;
+    border:1px solid var(--hairline);
+    border-radius:10px;
+    padding:20px 20px 18px;
+    background:var(--paper);
+    transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease;
+  }
+  .service-card:hover{
+    border-color:var(--flare);
+    box-shadow:0 10px 24px rgba(15,30,40,.10);
+    transform:translateY(-2px);
+  }
+  .service-tag{
+    font-family:var(--font-mono);font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;
+    display:inline-block;padding:.28em .6em;border-radius:4px;
+    margin-bottom:12px;color:var(--ink);
+  }
+  .tag-cool{background:#D8ECF7}
+  .tag-heat{background:#FFE1C2}
+  .tag-water{background:#DDE8DF}
+  .tag-upkeep{background:#EAE6F3}
+  .service-card h3{font-size:1.35rem;margin-bottom:6px}
+  .service-card p{font-size:.92rem;color:rgba(15,30,40,.72)}
+  .service-card .go{
+    display:inline-block;margin-top:12px;
+    font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--flare-text);font-weight:700;
+  }
+
+  /* ============ Why us ============ */
+  .why{background:var(--sky)}
+  .why-grid{display:grid;gap:28px}
+  .why-points{display:grid;gap:22px}
+  .why-point{border-left:3px solid var(--flare);padding-left:16px}
+  .why-point h3{font-size:1.25rem;margin-bottom:4px}
+  .why-point p{font-size:.94rem;color:rgba(15,30,40,.74)}
+  .photo-block{
+    position:relative;
+    min-height:240px;border-radius:12px;overflow:hidden;
+    background:
+      repeating-linear-gradient(135deg,rgba(18,52,77,.14) 0 14px,rgba(18,52,77,.05) 14px 28px),
+      linear-gradient(180deg,#BFD8E8 0%,#8FB6CE 100%);
+    border:1px solid var(--hairline);
+    display:flex;align-items:flex-end;
+  }
+  .photo-block figcaption{
+    width:100%;
+    font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--dusk-deep);
+    background:rgba(255,255,255,.75);
+    padding:10px 14px;
+  }
+
+  /* ============ Service area ============ */
+  .area{background:var(--dusk);color:#fff}
+  .area .section-head .eyebrow{color:var(--signal)}
+  .area .section-head p{color:var(--mist)}
+  .town-list{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+  .town-list li{
+    font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;
+    padding:.5em .9em;border:1px solid var(--hairline-light);border-radius:999px;
+    color:var(--mist);
+  }
+  .town-list li.hq{
+    background:var(--flare);color:var(--ink);border-color:var(--flare);
+    font-weight:700;
+  }
+  .area-note{
+    margin-top:22px;font-size:.95rem;color:var(--mist);max-width:52ch;
+  }
+  .area-note a{color:#fff;font-weight:600}
+
+  /* ============ Reviews ============ */
+  .reviews{background:var(--paper)}
+  .review-grid{display:grid;gap:14px;grid-template-columns:1fr}
+  .review-card{
+    border:1px solid var(--hairline);border-radius:10px;
+    padding:22px 20px;background:var(--sky);
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .review-when{
+    font-family:var(--font-mono);font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--flare-text);font-weight:700;
+  }
+  .review-card blockquote{font-size:.98rem;line-height:1.55}
+  .review-card cite{
+    font-style:normal;font-family:var(--font-mono);
+    font-size:.72rem;letter-spacing:.08em;color:rgba(15,30,40,.6);
+  }
+
+  /* ============ Closing CTA band ============ */
+  .closer{
+    background:var(--dusk-deep);color:#fff;text-align:center;
+    padding:54px 0;
+  }
+  .closer h2{font-size:clamp(1.9rem,5.5vw,3rem);max-width:20ch;margin:0 auto 20px}
+
+  /* ============ Footer ============ */
+  .site-footer{
+    background:var(--ink);color:var(--mist);
+    padding:40px 0 48px;
+    border-top:1px solid var(--hairline-light);
+    font-size:.88rem;
+  }
+  .footer-grid{display:grid;gap:28px}
+  .footer-brand .logo-block{margin-bottom:10px}
+  .site-footer h3{
+    color:#fff;font-size:1rem;margin-bottom:10px;letter-spacing:.05em;
+  }
+  .site-footer ul{list-style:none}
+  .site-footer li{margin-bottom:6px}
+  .site-footer a{color:var(--mist);text-decoration:none}
+  .site-footer a:hover{color:#fff;text-decoration:underline}
+  .footer-phone{
+    font-family:var(--font-display);font-size:1.3rem;color:#fff;
+    text-transform:uppercase;letter-spacing:.03em;
+  }
+  address{font-style:normal}
+  .fineprint{
+    margin-top:30px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);
+    font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;
+    color:rgba(255,255,255,.42);
+  }
+
+  /* ============ Fixed mobile call bar ============ */
+  .call-bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:150;
+    background:var(--flare);
+    box-shadow:0 -6px 20px rgba(0,0,0,.25);
+  }
+  .call-bar a{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    color:var(--ink);text-decoration:none;
+    font-family:var(--font-display);text-transform:uppercase;
+    font-size:1.25rem;letter-spacing:.03em;
+    padding:16px 12px;
+  }
+  .call-bar small{
+    font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;
+    font-weight:400;
+  }
+
+  /* ============ Breakpoints ============ */
+  @media (min-width:640px){
+    .service-grid{grid-template-columns:1fr 1fr}
+    .review-grid{grid-template-columns:1fr 1fr 1fr}
+    .footer-grid{grid-template-columns:1.4fr 1fr 1fr}
+  }
+  @media (min-width:900px){
+    body{padding-bottom:0}
+    .call-bar{display:none}
+    .header-call{display:inline-block}
+    .header-tagline{display:block}
+    .hero{padding:84px 0 92px}
+    .hero-grid{grid-template-columns:1.15fr .85fr;align-items:center;gap:56px}
+    .service-grid{grid-template-columns:1fr 1fr 1fr}
+    .why-grid{grid-template-columns:.9fr 1.1fr;align-items:start;gap:48px}
+    .why-points{grid-template-columns:1fr 1fr}
+    .section{padding:84px 0}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Loos and Sons Heating and Air — home">
+      <span class="logo-block" aria-hidden="true">L&amp;S</span>
+      <span class="brand-name">Loos &amp; Sons<small>Heating &amp; Air · Longmont CO</small></span>
+    </a>
+    <p class="header-tagline">Same-day service · Family-run</p>
+    <a class="header-call" href="tel:+13035550199">Call (303) 555-0199</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Longmont, Colorado · Family-run HVAC</p>
+        <h1 id="hero-title">One call, and a truck is rolling.</h1>
+        <p class="hero-sub">
+          AC dead in a heat wave? Furnace out at midnight? Loos &amp; Sons repairs and
+          installs cooling, heating, and water heaters across Longmont — usually the
+          same day you call. Pick up the phone; we take it from there.
+        </p>
+        <div class="hero-cta">
+          <a class="call-btn" href="tel:+13035550199">
+            <span class="phone-glyph" aria-hidden="true"></span>
+            Call (303) 555-0199
+          </a>
+          <small>A real person answers · 7 days a week, 7am–9pm</small>
+        </div>
+      </div>
+
+      <!-- Signature: dispatch ticket -->
+      <div class="ticket" role="img" aria-label="Dispatch status: a service truck is on call now in Longmont. Average arrival today is 47 minutes.">
+        <div class="ticket-head">
+          <span>Dispatch — Longmont</span>
+          <span>Ticket #0816</span>
+        </div>
+        <div class="ticket-status">
+          <span class="pulse" aria-hidden="true"></span>
+          <strong>Unit 3 · On call now</strong>
+        </div>
+        <div class="route" aria-hidden="true">
+          <div class="truck">
+            <span class="box"></span>
+            <span class="cab"></span>
+            <span class="w1"></span>
+            <span class="w2"></span>
+          </div>
+        </div>
+        <div class="ticket-foot">
+          <span>Avg. arrival today: <b>47 min</b></span>
+          <span>Trucks stocked for 1-visit fixes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Services ============ -->
+  <section class="section services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What we fix and install</p>
+        <h2 id="services-title">Cooling, heating, hot water. Handled.</h2>
+        <p>Every truck carries the parts for the most common failures, so most jobs are done in a single visit.</p>
+      </div>
+      <div class="service-grid">
+        <a class="service-card" href="/services/ac-repair/">
+          <span class="service-tag tag-cool">Cooling</span>
+          <h3>AC Repair</h3>
+          <p>Dead in a heat wave? Most repairs are diagnosed and done in one visit.</p>
+          <span class="go">Repair details →</span>
+        </a>
+        <a class="service-card" href="/services/ac-installation/">
+          <span class="service-tag tag-cool">Cooling</span>
+          <h3>AC Installation</h3>
+          <p>Right-sized systems, honest quotes, and cold air by dinnertime.</p>
+          <span class="go">Installation details →</span>
+        </a>
+        <a class="service-card" href="/services/furnace-repair/">
+          <span class="service-tag tag-heat">Heating</span>
+          <h3>Furnace Repair</h3>
+          <p>No heat in January counts as an emergency to us too. Call any day.</p>
+          <span class="go">Repair details →</span>
+        </a>
+        <a class="service-card" href="/services/furnace-installation/">
+          <span class="service-tag tag-heat">Heating</span>
+          <h3>Furnace Installation</h3>
+          <p>Quiet, efficient furnaces sized for real Colorado winters.</p>
+          <span class="go">Installation details →</span>
+        </a>
+        <a class="service-card" href="/services/water-heaters/">
+          <span class="service-tag tag-water">Water</span>
+          <h3>Water Heaters</h3>
+          <p>Repair or replace — hot showers back the same day, tank or tankless.</p>
+          <span class="go">Water heater details →</span>
+        </a>
+        <a class="service-card" href="/services/seasonal-tune-ups/">
+          <span class="service-tag tag-upkeep">Upkeep</span>
+          <h3>Seasonal Tune-Ups</h3>
+          <p>Spring and fall checkups that catch small failures before they strand you.</p>
+          <span class="go">Tune-up details →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Why us ============ -->
+  <section class="section why" aria-labelledby="why-title">
+    <div class="wrap why-grid">
+      <div>
+        <div class="section-head">
+          <p class="eyebrow">Why neighbors call us first</p>
+          <h2 id="why-title">The name on the truck answers the phone.</h2>
+        </div>
+        <figure class="photo-block">
+          <figcaption>Photo placeholder — the Loos family with Unit 3</figcaption>
+        </figure>
+      </div>
+      <div class="why-points">
+        <div class="why-point">
+          <h3>A person answers</h3>
+          <p>Call at 7am or 9pm and you reach a human who can put you on today's route — not a phone menu.</p>
+        </div>
+        <div class="why-point">
+          <h3>Same-day in Longmont</h3>
+          <p>We keep trucks close to home and stocked, so most calls get a visit the day you make them.</p>
+        </div>
+        <div class="why-point">
+          <h3>Two generations in</h3>
+          <p>Family-run since 1989. The sons in the name are the ones in your crawl space.</p>
+        </div>
+        <div class="why-point">
+          <h3>The price before the toolbox</h3>
+          <p>You approve a written number before any work starts, and the final bill matches it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Service area ============ -->
+  <section class="section area" aria-labelledby="area-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Dispatch radius</p>
+        <h2 id="area-title">If we can get there fast, we serve it.</h2>
+        <p>Home base is Longmont. These towns are inside our same-day range.</p>
+      </div>
+      <ul class="town-list">
+        <li class="hq">Longmont — HQ</li>
+        <li>Niwot</li>
+        <li>Hygiene</li>
+        <li>Mead</li>
+        <li>Berthoud</li>
+        <li>Firestone</li>
+        <li>Frederick</li>
+        <li>Dacono</li>
+        <li>Lyons</li>
+        <li>Erie</li>
+        <li>Gunbarrel</li>
+      </ul>
+      <p class="area-note">
+        Just outside the list? <a href="tel:+13035550199">Call (303) 555-0199</a> —
+        if a truck can reach you within the hour, we will come.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ Reviews ============ -->
+  <section class="section reviews" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">From the route log</p>
+        <h2 id="reviews-title">Calls we've answered</h2>
+      </div>
+      <div class="review-grid">
+        <article class="review-card">
+          <p class="review-when">July · AC out</p>
+          <blockquote>
+            "Our AC quit on the hottest Saturday of the summer. Called at 9, cold air
+            by 1. The tech even showed me the burnt capacitor before he swapped it."
+          </blockquote>
+          <cite>— Dana R., Longmont</cite>
+        </article>
+        <article class="review-card">
+          <p class="review-when">January · No heat</p>
+          <blockquote>
+            "Furnace died overnight with a newborn in the house. They moved us to the
+            front of the line and we had heat back before lunch."
+          </blockquote>
+          <cite>— Miguel A., Firestone</cite>
+        </article>
+        <article class="review-card">
+          <p class="review-when">October · Water heater</p>
+          <blockquote>
+            "Quoted a fair price for the new water heater over the phone, and the
+            final bill matched it to the dollar. Hot showers by that evening."
+          </blockquote>
+          <cite>— Kathy S., Berthoud</cite>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Closing CTA ============ -->
+  <section class="closer" aria-labelledby="closer-title">
+    <div class="wrap">
+      <h2 id="closer-title">Your house shouldn't have to wait.</h2>
+      <a class="call-btn" href="tel:+13035550199">
+        <span class="phone-glyph" aria-hidden="true"></span>
+        Call (303) 555-0199
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="logo-block" aria-hidden="true">L&amp;S</span>
+      <h3>Loos &amp; Sons Heating &amp; Air</h3>
+      <address>
+        1234 S Main St, Unit B<br>
+        Longmont, CO 80501
+      </address>
+      <p style="margin-top:10px"><a class="footer-phone" href="tel:+13035550199">(303) 555-0199</a></p>
+    </div>
+    <div>
+      <h3>Services</h3>
+      <ul>
+        <li><a href="/services/ac-repair/">AC Repair</a></li>
+        <li><a href="/services/ac-installation/">AC Installation</a></li>
+        <li><a href="/services/furnace-repair/">Furnace Repair</a></li>
+        <li><a href="/services/furnace-installation/">Furnace Installation</a></li>
+        <li><a href="/services/water-heaters/">Water Heaters</a></li>
+        <li><a href="/services/seasonal-tune-ups/">Seasonal Tune-Ups</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Hours</h3>
+      <ul>
+        <li>Mon–Sat: 7am–9pm</li>
+        <li>Sunday: emergency calls</li>
+      </ul>
+      <h3 style="margin-top:18px">Service area</h3>
+      <ul>
+        <li>Longmont &amp; nearby towns</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="fineprint">© 2026 Loos &amp; Sons Heating &amp; Air · CO License #000000 · Placeholder content</p>
+  </div>
+</footer>
+
+<!-- Fixed one-tap call bar (mobile) -->
+<div class="call-bar">
+  <a href="tel:+13035550199">
+    Call (303) 555-0199
+    <small>· AVG ARRIVAL 47 MIN</small>
+  </a>
+</div>
+
+</body>
+</html>

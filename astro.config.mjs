@@ -6,8 +6,6 @@ export default defineConfig({
   site: 'https://loosandsonshvac.com',
   integrations: [
     solid(),
-    sitemap({
-      filter: (page) => !/\/v[123]\/?$/.test(page),
-    }),
+    sitemap(),
   ],
 });

@@ -15,7 +15,6 @@ export const business = {
     state: 'CO',
     zip: '80501',
   },
-  license: 'Colorado Mechanical Contractor License #000000 (placeholder)',
   services: [
     {
       slug: 'ac-repair',

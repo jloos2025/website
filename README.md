@@ -6,6 +6,7 @@ The website for Loos & Sons HVAC in Longmont, Colorado.
 
 | If you want to | Read |
 | --- | --- |
+| **Get the site found on Google** (start here) | [docs/LAUNCH-CHECKLIST.md](docs/LAUNCH-CHECKLIST.md) |
 | Understand how the site is hosted and published | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
 | Work on this site with an AI assistant | [AGENTS.md](AGENTS.md) |
 | Publish a blog post | [docs/BLOG-WORKFLOW.md](docs/BLOG-WORKFLOW.md) |

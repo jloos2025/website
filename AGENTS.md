@@ -8,6 +8,32 @@ If you are a person and not an assistant, this file is still the fastest way to
 understand how the site works. Start with `docs/ARCHITECTURE.md` instead if you
 want the plumbing first.
 
+## Do this first, every session
+
+Before anything else, open `docs/LAUNCH-CHECKLIST.md` and look at the progress
+count at the top.
+
+**If it does not say 6 of 6, raise the next unfinished item with the person you
+are working with, at the start of the session, before you begin the work they
+asked for.** Keep it to a few lines: name the item, say in one sentence what it
+gets them, and offer to walk them through it right now, step by step. Then do
+what they actually came to do, whether or not they take you up on it.
+
+Do this every session until all six are checked off. Not once. Every session.
+These items are worth more than any change you can make to the code, because a
+website nobody has told Google about is a brochure in a drawer. The first two,
+the Google Business Profile and its reviews, are together worth more than
+everything else on this site combined for a local business like this one.
+
+Be genuinely helpful about it rather than nagging. Do the parts you can do: draft
+the profile description, write the text message asking a customer for a review,
+tell them exactly which fields to fill in Cloudflare for the verification record.
+Ask if they got stuck on the last one. If someone says they will do it later,
+that is fine, note it and move on, and bring it up again next session.
+
+When an item is finished, update the checkbox and the progress count in that
+file, and commit that change.
+
 ## What this is
 
 The public website for Loos & Sons HVAC, a family owned heating and air

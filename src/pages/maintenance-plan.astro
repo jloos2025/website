@@ -3,13 +3,12 @@ import Base from '../layouts/Base.astro';
 import PhoneIcon from '../components/PhoneIcon.astro';
 import { business } from '../data/business';
 
-const description = `Maintenance plan from Loos & Sons HVAC in Longmont, Colorado. $99 per piece of equipment, covering furnaces, air conditioning, boilers, geothermal, and mini-split systems. Call ${business.phoneDisplay}.`;
+const description = `Maintenance plan from Loos & Sons HVAC in Longmont, Colorado. $99 per piece of equipment per year, covering furnaces, air conditioning, boilers, and mini-split systems. Geothermal is $198 per year for two inspections. Call ${business.phoneDisplay}.`;
 
 const covered = [
   'A furnace',
   'An air conditioner',
   'A boiler',
-  'A geothermal system',
   'A mini-split system with up to 3 heads',
 ];
 
@@ -19,12 +18,20 @@ const schema = {
   name: 'HVAC Maintenance Plan',
   serviceType: 'Heating and cooling maintenance plan',
   description,
-  offers: {
-    '@type': 'Offer',
-    price: '99',
-    priceCurrency: 'USD',
-    description: 'Per piece of equipment',
-  },
+  offers: [
+    {
+      '@type': 'Offer',
+      price: '99',
+      priceCurrency: 'USD',
+      description: 'Per piece of equipment, per year',
+    },
+    {
+      '@type': 'Offer',
+      price: '198',
+      priceCurrency: 'USD',
+      description: 'Geothermal system, per year, covering two inspections',
+    },
+  ],
   provider: {
     '@type': 'HVACBusiness',
     name: business.fullName,
@@ -35,7 +42,7 @@ const schema = {
 ---
 
 <Base
-  title={`Maintenance Plan | $99 Per Piece of Equipment | ${business.fullName}`}
+  title={`Maintenance Plan | $99 Per Piece of Equipment Per Year | ${business.fullName}`}
   description={description}
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
@@ -47,7 +54,7 @@ const schema = {
         <span>Maintenance plan</span>
       </nav>
       <span class="eyebrow">Maintenance plan</span>
-      <h1>Maintenance Plan: $99 Per Piece of Equipment</h1>
+      <h1>Maintenance Plan: $99 Per Piece of Equipment, Per Year</h1>
       <p class="svc-intro">
         You build the plan around what you actually own. Pay for the equipment in your house, not for
         a package with things in it you do not need. Most of the emergency calls we take were
@@ -64,7 +71,9 @@ const schema = {
     <div class="wrap">
       <h2>How the pricing works</h2>
       <div class="price-box">
-        <p class="price-line"><span class="price-num">$99</span> per piece of equipment</p>
+        <p class="price-line">
+          <span class="price-num">$99</span> per piece of equipment, per year
+        </p>
         <p>Each of these counts as one piece of equipment:</p>
         <ul class="sign-list">
           {
@@ -83,10 +92,25 @@ const schema = {
           Additional heads beyond the first 3 are $30 each.
         </p>
       </div>
+
+      <div class="price-box price-box-alt">
+        <p class="price-line"><span class="price-num">$198</span> per year for geothermal</p>
+        <p>
+          Geothermal is priced on its own because it earns two inspections a year rather than one. A
+          ground source system both heats and cools, so it gets checked going into the heating season
+          and again going into the cooling season. Very few companies on the Front Range service
+          these at all, which is the other reason we treat it separately.
+        </p>
+        <p class="price-add">
+          <a href="/services/geothermal/">More about our geothermal work</a>
+        </p>
+      </div>
+
       <p class="city-body">
-        So a house with a furnace and an air conditioner is two pieces of equipment. A house with a
-        boiler and a 4 head mini-split system is two pieces plus $30 for the fourth head. Call us
-        with what you have and we will tell you the number before you commit to anything.
+        So a house with a furnace and an air conditioner is two pieces of equipment, or $198 a year.
+        A house with a boiler and a 4 head mini-split system is two pieces plus $30 for the fourth
+        head. Call us with what you have and we will tell you the number before you commit to
+        anything.
       </p>
     </div>
   </section>

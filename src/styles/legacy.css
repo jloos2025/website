@@ -587,3 +587,8 @@ body{padding-bottom:4.25rem} /* room for sticky bar */
 .svc-notice{margin:0 0 1.75rem;max-width:64ch}
 .svc-notice h2{font-size:1.1rem;color:var(--flame-hot);margin-bottom:.5rem}
 .svc-notice p{color:var(--ink-soft)}
+
+/* Geothermal pricing sits alongside the standard box, visually distinct */
+.price-box-alt{border-left-color:var(--spruce);margin-top:1.25rem}
+.price-box-alt .price-num{color:var(--copper-deep)}
+.price-box-alt p{color:var(--ink-soft)}

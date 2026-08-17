@@ -3,7 +3,9 @@
 export const business = {
   name: 'Loos & Sons',
   fullName: 'Loos & Sons HVAC',
-  place: 'Heating · Cooling · Comfort · Longmont, CO',
+  // Header tagline only. Longmont is carried by the H1, the footer, and the
+  // city pages, so it is left out here to keep the header from crowding.
+  place: 'Heating · Cooling · Comfort',
   city: 'Longmont',
   phoneDisplay: '(303) 536-8922',
   phoneE164: '+13035368922',

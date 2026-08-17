@@ -23,9 +23,14 @@ import { business } from '../data/business';
     <div>
       <h3>Services</h3>
       <ul class="foot-links">
-        {business.services.map((s) => <li><a href={`/services/${s.slug}/`}>{s.title}</a></li>)}
+        {
+          business.services.map((s) => (
+            <li>
+              <a href={s.href ?? `/services/${s.slug}/`}>{s.title}</a>
+            </li>
+          ))
+        }
         <li><a href="/xcel-energy-heat-pump-rebates/">Xcel Rebates</a></li>
-        <li><a href="/maintenance-plan/">Maintenance Plan</a></li>
         <li><a href="/emergency/">Emergency Service</a></li>
         <li><a href="/gallery/">Our Work</a></li>
         <li><a href="/about/">About Us</a></li>

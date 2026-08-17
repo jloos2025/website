@@ -104,6 +104,14 @@ export const business = {
       go: 'Water heater details',
     },
     {
+      // Not a /services/ page. It is a priced plan, so it lives at its own URL.
+      slug: 'maintenance-plan',
+      href: '/maintenance-plan/',
+      title: 'Maintenance Plan',
+      blurb: '$99 per piece of equipment per year, or $198 for geothermal. Build the plan around what you actually own instead of a package with things you do not need.',
+      go: 'See the pricing',
+    },
+    {
       slug: 'seasonal-tune-ups',
       title: 'Seasonal Tune-Ups',
       blurb: 'A fall furnace check and a spring AC check, so you find the problem before you need the system.',

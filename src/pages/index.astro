@@ -29,7 +29,11 @@ const schema = {
     name: 'HVAC Services',
     itemListElement: business.services.map((s) => ({
       '@type': 'Offer',
-      itemOffered: { '@type': 'Service', name: s.title, url: `https://loosandsonshvac.com/services/${s.slug}/` },
+      itemOffered: {
+        '@type': 'Service',
+        name: s.title,
+        url: `https://loosandsonshvac.com${s.href ?? `/services/${s.slug}/`}`,
+      },
     })),
   },
 };

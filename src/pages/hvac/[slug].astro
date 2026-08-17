@@ -72,7 +72,7 @@ const schema = {
       <div class="svc-grid">
         {
           linked.map((s) => (
-            <a class="svc-card" href={`/services/${s.slug}/`}>
+            <a class="svc-card" href={s.href ?? `/services/${s.slug}/`}>
               <h3>{s.title}</h3>
               <p>{s.blurb}</p>
               <span class="go">{s.go}</span>

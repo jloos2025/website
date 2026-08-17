@@ -11,7 +11,7 @@ const schema = {
   '@context': 'https://schema.org',
   '@type': 'HVACBusiness',
   name: business.fullName,
-  description: `Family owned heating and air conditioning company serving ${business.city}, Colorado and the Front Range.`,
+  description: `Family owned heating and air conditioning company serving ${business.city}, Colorado and the Front Range. Installation, replacement, new construction, and service.`,
   telephone: business.phoneE164,
   email: business.email,
   url: 'https://loosandsonshvac.com/',
@@ -35,8 +35,8 @@ const schema = {
 ---
 
 <Base
-  title={`Furnace & AC Repair in Longmont, CO | ${business.fullName}`}
-  description={`Family-run heating and air conditioning repair and installation in Longmont, Colorado. Furnaces, AC, mini-splits, and water heaters. Call ${business.phoneDisplay}.`}
+  title={`Heating & Air Conditioning in Longmont, CO | ${business.fullName}`}
+  description={`Family-run heating and air conditioning for Longmont and the Front Range. Installation, replacement, new construction, and service for furnaces, AC, heat pumps, boilers, geothermal, and water heaters. Call ${business.phoneDisplay}.`}
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
   <Hero />

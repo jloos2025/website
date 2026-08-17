@@ -530,3 +530,58 @@ body{padding-bottom:4.25rem} /* room for sticky bar */
 .prose li{margin-bottom:.5rem}
 .prose a{color:var(--copper-deep)}
 .prose strong{font-weight:700}
+
+/* ============ Wide photo (family portrait keeps its own shape) ============ */
+.why-photo.photo-wide img{aspect-ratio:auto}
+
+/* ============ Credentials ============ */
+.creds{background:var(--paper);border-top:1px solid #E2D8C2}
+.cred-feature{
+  background:var(--spruce);color:var(--cream-on-green);
+  border-radius:var(--radius);border-left:5px solid var(--copper);
+  padding:1.6rem 1.7rem;margin-top:1.5rem;max-width:64ch;
+}
+.cred-flag{
+  font-family:var(--util);font-weight:700;font-size:.8rem;
+  letter-spacing:.14em;text-transform:uppercase;color:#CFA377;
+  margin-bottom:.7rem;
+}
+.cred-feature p{margin-bottom:.8rem}
+.cred-feature p:last-child{margin-bottom:0}
+.cred-note{font-size:.92rem;color:#BFD0C4}
+.cred-list{
+  list-style:none;display:grid;gap:1rem;margin-top:1.75rem;
+}
+@media(min-width:640px){.cred-list{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.cred-list{grid-template-columns:1fr 1fr 1fr}}
+.cred-list li{
+  background:#fff;border:1px solid #E4DCC9;border-radius:var(--radius);
+  padding:1rem 1.1rem;
+}
+.cred-list strong{
+  display:block;font-family:var(--slab);font-size:1rem;
+  color:var(--spruce);margin-bottom:.25rem;
+}
+.cred-list span{font-size:.92rem;color:var(--ink-soft)}
+
+/* ============ Maintenance plan pricing ============ */
+.price-box{
+  background:#fff;border:1px solid #E4DCC9;border-left:5px solid var(--copper);
+  border-radius:var(--radius);padding:1.5rem 1.6rem;margin-top:1.5rem;max-width:60ch;
+}
+.price-line{margin-bottom:1rem}
+.price-num{
+  font-family:var(--slab);font-weight:700;font-size:2.6rem;
+  color:var(--spruce);line-height:1;margin-right:.4rem;
+}
+.price-box .sign-list{margin-top:1rem}
+.price-add{
+  margin-top:1.25rem;padding-top:1.1rem;border-top:1px solid #E4DCC9;
+  color:var(--ink-soft);font-size:.97rem;
+}
+.price-box + .city-body{margin-top:1.5rem}
+
+/* ============ Service page notice ============ */
+.svc-notice{margin:0 0 1.75rem;max-width:64ch}
+.svc-notice h2{font-size:1.1rem;color:var(--flame-hot);margin-bottom:.5rem}
+.svc-notice p{color:var(--ink-soft)}

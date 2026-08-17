@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import PhoneIcon from '../components/PhoneIcon.astro';
-import truck from '../assets/gallery/truck-side.jpg';
+import family from '../assets/loos-family.jpg';
 import { business } from '../data/business';
 import { cityPages } from '../data/cities';
 
@@ -122,11 +122,11 @@ const schema = {
           </p>
         </div>
         <div>
-          <figure class="why-photo">
+          <figure class="why-photo photo-wide">
             <Image
-              src={truck}
-              alt="Loos & Sons HVAC service truck with the company logo on the door"
-              widths={[560, 1000]}
+              src={family}
+              alt="The Loos family, owners of Loos & Sons HVAC in Longmont, Colorado"
+              widths={[560, 1100]}
               sizes="(min-width: 880px) 42vw, 92vw"
               loading="lazy"
             />

@@ -17,6 +17,29 @@ export const business = {
     state: 'CO',
     region: 'Colorado',
   },
+  legalName: 'Loos & Sons HVAC LLC',
+  // Credentials supplied by the owner. Logos to be added as they are provided.
+  // Do not add a credential here without confirmation from the owner.
+  credentials: [
+    {
+      name: 'Better Business Bureau A+ accredited',
+      detail: 'Accredited with an A+ rating.',
+    },
+    {
+      name: 'Xcel Energy rebate partner',
+      detail: 'We handle heat pump rebate paperwork as a participating contractor.',
+    },
+    {
+      name: 'NATE certified in heat pump installation',
+      detail: 'The industry certification for technicians, specific to heat pumps.',
+    },
+    {
+      name: 'Armstrong Pro Partner',
+      detail: 'Factory partner for Armstrong equipment.',
+    },
+    { name: 'LG Pro Partner', detail: 'Factory partner for LG ductless systems.' },
+    { name: 'Navien Pro Certified', detail: 'Certified on Navien tankless and combi units.' },
+  ],
   services: [
     {
       slug: 'ac-repair',
@@ -65,6 +88,12 @@ export const business = {
       title: 'Geothermal',
       blurb: 'Ground source heat pumps, flow centers, and loop work. Very few companies on the Front Range service these. We do.',
       go: 'Geothermal details',
+    },
+    {
+      slug: 'swamp-coolers',
+      title: 'Swamp Coolers',
+      blurb: 'We service evaporative coolers and handle seasonal start-up and shutdown, though we do not recommend them and we carry no liability for water damage.',
+      go: 'Swamp cooler details',
     },
     {
       slug: 'water-heaters',

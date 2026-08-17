@@ -6,7 +6,11 @@ import { business } from '../data/business';
   <div class="wrap">
     <div class="foot-brand">
       <span class="name">{business.fullName}</span>
-      <p>Family owned and operated in Longmont, Colorado. Licensed and insured.</p>
+      <p>
+        Family owned and operated in Longmont, Colorado. Licensed and insured. Better Business
+        Bureau A+ accredited. NATE certified in heat pump installation and an Xcel Energy rebate
+        partner.
+      </p>
     </div>
     <div>
       <h3>Get in touch</h3>
@@ -20,6 +24,7 @@ import { business } from '../data/business';
       <h3>Services</h3>
       <ul class="foot-links">
         {business.services.map((s) => <li><a href={`/services/${s.slug}/`}>{s.title}</a></li>)}
+        <li><a href="/maintenance-plan/">Maintenance Plan</a></li>
         <li><a href="/emergency/">Emergency Service</a></li>
         <li><a href="/gallery/">Our Work</a></li>
         <li><a href="/about/">About Us</a></li>
@@ -29,6 +34,6 @@ import { business } from '../data/business';
   </div>
   <p class="fineprint">
     © {new Date().getFullYear()}
-    {business.fullName} · Longmont, Colorado
+    {business.legalName} · Longmont, Colorado
   </p>
 </footer>

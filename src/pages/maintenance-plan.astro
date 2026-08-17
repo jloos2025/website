@@ -1,0 +1,141 @@
+---
+import Base from '../layouts/Base.astro';
+import PhoneIcon from '../components/PhoneIcon.astro';
+import { business } from '../data/business';
+
+const description = `Maintenance plan from Loos & Sons HVAC in Longmont, Colorado. $99 per piece of equipment, covering furnaces, air conditioning, boilers, geothermal, and mini-split systems. Call ${business.phoneDisplay}.`;
+
+const covered = [
+  'A furnace',
+  'An air conditioner',
+  'A boiler',
+  'A geothermal system',
+  'A mini-split system with up to 3 heads',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'HVAC Maintenance Plan',
+  serviceType: 'Heating and cooling maintenance plan',
+  description,
+  offers: {
+    '@type': 'Offer',
+    price: '99',
+    priceCurrency: 'USD',
+    description: 'Per piece of equipment',
+  },
+  provider: {
+    '@type': 'HVACBusiness',
+    name: business.fullName,
+    telephone: business.phoneE164,
+    url: 'https://loosandsonshvac.com/',
+  },
+};
+---
+
+<Base
+  title={`Maintenance Plan | $99 Per Piece of Equipment | ${business.fullName}`}
+  description={description}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
+
+  <section class="section svc-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">/</span>
+        <span>Maintenance plan</span>
+      </nav>
+      <span class="eyebrow">Maintenance plan</span>
+      <h1>Maintenance Plan: $99 Per Piece of Equipment</h1>
+      <p class="svc-intro">
+        You build the plan around what you actually own. Pay for the equipment in your house, not for
+        a package with things in it you do not need. Most of the emergency calls we take were
+        preventable, and this is the cheapest way to stay ahead of them.
+      </p>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+    </div>
+  </section>
+
+  <section class="section svc-signs">
+    <div class="wrap">
+      <h2>How the pricing works</h2>
+      <div class="price-box">
+        <p class="price-line"><span class="price-num">$99</span> per piece of equipment</p>
+        <p>Each of these counts as one piece of equipment:</p>
+        <ul class="sign-list">
+          {
+            covered.map((c) => (
+              <li>
+                <span class="tick" aria-hidden="true">
+                  ✓
+                </span>
+                <span>{c}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="price-add">
+          <strong>Mini-splits:</strong> a system with up to 3 heads counts as one piece of equipment.
+          Additional heads beyond the first 3 are $30 each.
+        </p>
+      </div>
+      <p class="city-body">
+        So a house with a furnace and an air conditioner is two pieces of equipment. A house with a
+        boiler and a 4 head mini-split system is two pieces plus $30 for the fourth head. Call us
+        with what you have and we will tell you the number before you commit to anything.
+      </p>
+    </div>
+  </section>
+
+  <section class="section svc-process">
+    <div class="wrap">
+      <h2>Why bother with a plan</h2>
+      <ol class="step-list">
+        <li>
+          <h3>Problems get found in the fall, not in January</h3>
+          <p>
+            A worn part caught during a scheduled visit is a small repair. The same part failing on
+            the coldest night of the year is an emergency call, and every heating company in the
+            county is already booked that night.
+          </p>
+        </li>
+        <li>
+          <h3>Your warranty usually depends on it</h3>
+          <p>
+            Most manufacturers require documented annual maintenance to keep the warranty valid.
+            People find that out at the worst possible moment, which is when they file a claim.
+          </p>
+        </li>
+        <li>
+          <h3>Equipment lasts longer and runs cheaper</h3>
+          <p>
+            Clean coils, correct charge, and unobstructed airflow are the difference between a system
+            that reaches its full service life and one that quits early.
+          </p>
+        </li>
+        <li>
+          <h3>We already know your system</h3>
+          <p>
+            When you do call with a problem, we are not seeing your mechanical room for the first
+            time. That shortens the visit and it shortens the bill.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="final-cta section" aria-labelledby="plan-cta">
+    <div class="wrap">
+      <span class="eyebrow">Longmont and the Front Range</span>
+      <h2 id="plan-cta">Tell us what is in your house and we will price it.</h2>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+    </div>
+  </section>
+</Base>

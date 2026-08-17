@@ -70,6 +70,14 @@ const schema = {
       <span class="eyebrow">{page.eyebrow}</span>
       <h1>{page.h1}</h1>
       <p class="svc-intro">{page.intro}</p>
+      {
+        page.notice && (
+          <div class="warn svc-notice" role="note">
+            <h2>{page.notice.heading}</h2>
+            <p>{page.notice.body}</p>
+          </div>
+        )
+      }
       <a class="call-btn" href={`tel:${business.phoneE164}`}>
         <PhoneIcon />
         Call {business.phoneDisplay}

@@ -11,6 +11,9 @@ export type ServicePage = {
   process: { heading: string; steps: { title: string; body: string }[] };
   faqs: { q: string; a: string }[];
   gallery: string[];
+  // Optional standalone notice rendered directly under the intro, for terms a
+  // customer must see before booking rather than find later.
+  notice?: { heading: string; body: string };
 };
 
 export const servicePages: ServicePage[] = [
@@ -266,7 +269,7 @@ export const servicePages: ServicePage[] = [
       'Heat pump and ductless mini-split installation and repair in Longmont, Colorado. Cold climate systems that heat and cool from one unit. Call (303) 536-8922.',
     eyebrow: 'Heat pumps and mini-splits',
     intro:
-      'A heat pump moves heat instead of burning fuel to make it, so one system handles both heating and cooling. The cold climate models made in the last few years hold their capacity far below freezing, which is what makes them work here and not just in mild states.',
+      'A heat pump moves heat instead of burning fuel to make it, so one system handles both heating and cooling. The cold climate models made in the last few years hold their capacity far below freezing, which is what makes them work here and not just in mild states. We are NATE certified in heat pump installation and an Xcel Energy rebate partner, so ask what the rebate takes off the price before you decide.',
     signs: {
       heading: 'A heat pump is worth looking at when',
       items: [
@@ -314,7 +317,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         q: 'Are there rebates on heat pumps?',
-        a: 'Federal, state, and utility incentives for heat pumps have existed in recent years and the programs change often. We will tell you what we know at the time of your quote, and we will point you at the current program rather than guess at a number.',
+        a: 'Yes, and this is worth asking about before you buy anything. We are an Xcel Energy rebate partner, so we handle the paperwork and we make sure the equipment we quote actually qualifies. Rebate amounts change, so we will tell you what is available when you call rather than quote a number that has since expired. Federal and state incentives have also been available in recent years and can sometimes stack.',
       },
     ],
     gallery: ['minisplit-outdoor-twin-fan', 'minisplit-living-room', 'minisplit-outdoor-pair'],
@@ -501,6 +504,70 @@ export const servicePages: ServicePage[] = [
       },
     ],
     gallery: ['geothermal-heat-pump-unit', 'geothermal-flow-center', 'geothermal-loop-pumps'],
+  },
+  {
+    slug: 'swamp-coolers',
+    h1: 'Swamp Cooler Start-Up and Shutdown in Longmont, Colorado',
+    title: 'Swamp Cooler Service in Longmont, CO | Start-Up and Shutdown',
+    description:
+      'Evaporative cooler start-up, shutdown, and service in Longmont, Colorado. We will work on them, but we do not recommend them and we carry no liability for water damage. Call (303) 536-8922.',
+    eyebrow: 'Swamp coolers',
+    notice: {
+      heading: 'Please read: no liability for water damage',
+      body: 'Loos & Sons HVAC LLC does not recommend swamp coolers and accepts no liability whatsoever for flooding or water damage arising from a swamp cooler, including damage caused by equipment failure. This applies to any unit we start up, shut down, service, or repair. Booking swamp cooler work means accepting this condition.',
+    },
+    intro:
+      'We service evaporative coolers, and we do the seasonal start-up in spring and the shutdown in fall. We are also going to be straight with you about them, because you deserve to hear it from somebody who is not selling you one.',
+    signs: {
+      heading: 'What we do with evaporative coolers',
+      items: [
+        'Spring start-up, including pads, pump, and water line',
+        'Fall shutdown and winterizing so lines do not freeze and split',
+        'Pump, float, and belt replacement',
+        'Diagnosing units that will not cool or will not hold water',
+        'Advice on replacing a swamp cooler with refrigerated air conditioning',
+      ],
+    },
+    process: {
+      heading: 'Read this before you book',
+      steps: [
+        {
+          title: 'We do not recommend swamp coolers',
+          body: 'They add moisture to the house, they struggle on humid days, they need water running through equipment sitting on or near your roof, and they are far more prone to leaks and flooding than refrigerated air conditioning. We will tell you this every time you ask.',
+        },
+        {
+          title: 'We carry no liability for water damage',
+          body: 'Loos & Sons HVAC LLC accepts no liability whatsoever for flooding or water damage arising from a swamp cooler, including damage from equipment failure. This applies to units we have started up, shut down, or serviced. If you want work done on a swamp cooler, this is the condition of the work.',
+        },
+        {
+          title: 'We will still do the work properly',
+          body: 'None of the above means we cut corners. If you have a swamp cooler and you want it running, we will service it and we will do a careful job of it.',
+        },
+        {
+          title: 'Ask us about the alternative',
+          body: 'If you are tired of the water, the maintenance, and the risk, ask what it would take to move to refrigerated air conditioning or a heat pump. Sometimes the answer is cheaper than people expect.',
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: 'Why do you not recommend swamp coolers?',
+        a: 'They rely on running water through equipment that is usually on or beside the roof, which makes leaks and flooding a real and common failure mode. They also add humidity indoors and lose effectiveness on the muggiest days, which are exactly the days you want cooling most.',
+      },
+      {
+        q: 'Will you still work on mine?',
+        a: 'Yes. We do start-ups, shutdowns, and repairs. We just do them on the clear condition that Loos & Sons HVAC LLC carries no liability for any flooding or water damage from the unit.',
+      },
+      {
+        q: 'What does winterizing involve and why does it matter?',
+        a: 'We shut off and drain the water supply, clear the lines, and cover or seal the unit. Skipping it means water left in a line can freeze, split the line, and flood when the thaw comes.',
+      },
+      {
+        q: 'What would it cost to switch to refrigerated air?',
+        a: 'It depends on whether you have ductwork and what your electrical service can support. Call the shop and describe your house, and we will give you an honest picture of the options, including a ductless system if running ducts is not practical.',
+      },
+    ],
+    gallery: ['ac-condenser-landscaped', 'ac-install-new-condenser', 'ac-condenser-blue-home'],
   },
   {
     slug: 'water-heaters',

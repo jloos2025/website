@@ -36,6 +36,11 @@ const schema = {
     addressRegion: business.address.state,
     addressCountry: 'US',
   },
+  hasCredential: business.credentials.map((c) => ({
+    '@type': 'EducationalOccupationalCredential',
+    name: c.name,
+    description: c.detail,
+  })),
   knowsAbout: [
     'Furnace repair and installation',
     'Air conditioning repair and installation',

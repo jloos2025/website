@@ -1,0 +1,188 @@
+---
+import Base from '../layouts/Base.astro';
+import PhoneIcon from '../components/PhoneIcon.astro';
+import { business } from '../data/business';
+
+const description = `Xcel Energy heat pump rebates in Longmont and across Colorado. The air source heat pump rebate requires a participating contractor, and we are one. We handle the paperwork. Call ${business.phoneDisplay}.`;
+
+const faqs = [
+  {
+    q: 'Do I have to use a specific contractor to get the Xcel heat pump rebate?',
+    a: 'For the air source heat pump rebate, yes. It is a closed program, which means Xcel requires the installation to be done by a contractor they have vetted and approved for heat pumps. If you hire someone who is not on that list, the rebate is not available to you no matter how good the install is. We are a participating contractor.',
+  },
+  {
+    q: 'How much is the rebate worth?',
+    a: 'The amounts change, and they depend on the equipment and the program you qualify for, so we will not quote you a number here that might be stale by the time you read it. Ask when you call and we will tell you what is available that week, and what your specific equipment would earn.',
+  },
+  {
+    q: 'Do I have to pay up front and wait to be reimbursed?',
+    a: 'It depends on the program. Some rebates are handled as an instant discount on your invoice, and some are processed after the install. Colorado also has a state heat pump tax credit that requires your installing contractor to be state registered and to pass a minimum amount directly to you as a line item on the invoice. We will tell you exactly how yours will work before you commit.',
+  },
+  {
+    q: 'Can rebates be combined?',
+    a: 'Often, yes. Utility rebates, state credits, and federal incentives have been stackable in recent years, though each has its own rules and they change. This is one of the main reasons to ask before you buy rather than after, because the equipment you choose determines what you qualify for.',
+  },
+  {
+    q: 'What equipment qualifies?',
+    a: 'Rebates are tied to efficiency ratings, so not every heat pump on the market qualifies, and the cheapest option often does not. We check qualification before we quote you, so you are not surprised later.',
+  },
+  {
+    q: 'What if I am not an Xcel customer?',
+    a: 'Then the Xcel programs do not apply, but state and federal incentives may still be worth looking at. Call and tell us who your utility is and we will tell you honestly what is on the table.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      name: 'Xcel Energy heat pump rebate assistance',
+      serviceType: 'Heat pump installation with utility rebate processing',
+      description,
+      provider: {
+        '@type': 'HVACBusiness',
+        name: business.fullName,
+        telephone: business.phoneE164,
+        url: 'https://loosandsonshvac.com/',
+      },
+      areaServed: { '@type': 'State', name: 'Colorado' },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Base
+  title={`Xcel Energy Heat Pump Rebates in Colorado | ${business.fullName}`}
+  description={description}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
+
+  <section class="section svc-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">/</span>
+        <span>Xcel rebates</span>
+      </nav>
+      <span class="eyebrow">Xcel Energy rebate partner</span>
+      <h1>Xcel Energy Heat Pump Rebates in Longmont and Across Colorado</h1>
+      <p class="svc-intro">
+        A heat pump rebate can take real money off the price of a new system. The part most
+        homeowners do not find out until too late is that the air source heat pump rebate is a closed
+        program, so it only pays out when the work is done by a contractor Xcel has approved. We are
+        on that list, and we handle the paperwork.
+      </p>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+      <p class="call-note">Ask what your system would qualify for before you buy it.</p>
+    </div>
+  </section>
+
+  <section class="section svc-signs">
+    <div class="wrap">
+      <h2>Why the contractor matters more than the equipment</h2>
+      <p class="city-body">
+        People shop equipment first and installer second, which is backwards when a rebate is
+        involved. For the air source heat pump program, Xcel vets and approves the contractors
+        allowed to claim it. Hire someone outside that list and the money is simply not available to
+        you, even if they install the exact same unit to the same standard. It is worth confirming
+        this with any company you are considering, including us.
+      </p>
+      <ul class="sign-list">
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <span>We are an Xcel Energy participating contractor for heat pump work.</span>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <span>We are NATE certified in heat pump installation.</span>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <span>We check that the equipment qualifies before we quote it, not after.</span>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true">✓</span>
+          <span>We fill out and submit the rebate paperwork for you.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section svc-process">
+    <div class="wrap">
+      <h2>How it goes</h2>
+      <ol class="step-list">
+        <li>
+          <h3>You call and tell us about the house</h3>
+          <p>
+            We ask what you have now, what you are trying to fix, and who your utility is. That
+            determines which programs are even in play.
+          </p>
+        </li>
+        <li>
+          <h3>We quote equipment that qualifies</h3>
+          <p>
+            Rebates are tied to efficiency ratings, so we make sure what we are proposing actually
+            earns the incentive. You get the price with the rebate accounted for, so you are looking
+            at a real number.
+          </p>
+        </li>
+        <li>
+          <h3>We install it and document it</h3>
+          <p>
+            Rebate claims need model numbers, serials, and proof of a proper installation. We capture
+            that during the job instead of chasing it afterward.
+          </p>
+        </li>
+        <li>
+          <h3>We submit the paperwork</h3>
+          <p>
+            This is the step that defeats most people. We handle the filing and tell you what to
+            expect and roughly when.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section svc-faq">
+    <div class="wrap">
+      <h2>Questions we get asked</h2>
+      <dl class="faq-list">
+        {
+          faqs.map((f) => (
+            <div class="faq-item">
+              <dt>{f.q}</dt>
+              <dd>{f.a}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="photo-cap city-all">
+        <a href="/services/heat-pumps/">More about heat pump installation and repair</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="final-cta section" aria-labelledby="xcel-cta">
+    <div class="wrap">
+      <span class="eyebrow">Longmont and the Front Range</span>
+      <h2 id="xcel-cta">Ask what the rebate takes off before you buy.</h2>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}>
+        <PhoneIcon />
+        Call {business.phoneDisplay}
+      </a>
+    </div>
+  </section>
+</Base>

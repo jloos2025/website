@@ -2,164 +2,47 @@
 import Base from '../layouts/Base.astro';
 import PhoneIcon from '../components/PhoneIcon.astro';
 import { business } from '../data/business';
+import { comfortClub } from '../data/comfortClub';
 
-const description = `Maintenance plan from Loos & Sons HVAC in Longmont, Colorado. $99 per piece of equipment per year, covering furnaces, air conditioning, boilers, and mini-split systems. Geothermal is $198 per year for two inspections. Call ${business.phoneDisplay}.`;
-
-const covered = [
-  'A furnace',
-  'An air conditioner',
-  'A boiler',
-  'A mini-split system with up to 3 heads',
-];
-
+const description = `Loos & Sons Comfort Club HVAC maintenance in Longmont, Colorado. $${comfortClub.standardPrice} per piece of equipment, per visit, with priority service and member benefits. Call ${business.phoneDisplay}.`;
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'HVAC Maintenance Plan',
-  serviceType: 'Heating and cooling maintenance plan',
+  name: 'Loos & Sons Comfort Club',
+  serviceType: 'Residential HVAC maintenance plan',
   description,
-  offers: [
-    {
-      '@type': 'Offer',
-      price: '99',
-      priceCurrency: 'USD',
-      description: 'Per piece of equipment, per year',
-    },
-    {
-      '@type': 'Offer',
-      price: '198',
-      priceCurrency: 'USD',
-      description: 'Geothermal system, per year, covering two inspections',
-    },
-  ],
-  provider: {
-    '@type': 'HVACBusiness',
-    name: business.fullName,
-    telephone: business.phoneE164,
-    url: 'https://loosandsonshvac.com/',
-  },
+  offers: { '@type': 'Offer', price: String(comfortClub.standardPrice), priceCurrency: 'USD', description: 'Per piece of standard residential HVAC equipment, per maintenance visit' },
+  provider: { '@type': 'HVACBusiness', name: business.fullName, telephone: business.phoneE164, url: 'https://loosandsonshvac.com/' },
 };
 ---
 
-<Base
-  title={`Maintenance Plan | $99 Per Piece of Equipment Per Year | ${business.fullName}`}
-  description={description}
->
+<Base title={`Comfort Club HVAC Maintenance | $99 Per Visit | ${business.fullName}`} description={description}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
 
-  <section class="section svc-head">
+  <section class="club-hero section">
     <div class="wrap">
-      <nav class="crumbs" aria-label="Breadcrumb">
-        <a href="/">Home</a> <span aria-hidden="true">/</span>
-        <span>Maintenance plan</span>
-      </nav>
-      <span class="eyebrow">Maintenance plan</span>
-      <h1>Maintenance Plan: $99 Per Piece of Equipment, Per Year</h1>
-      <p class="svc-intro">
-        You build the plan around what you actually own. Pay for the equipment in your house, not for
-        a package with things in it you do not need. Most of the emergency calls we take were
-        preventable, and this is the cheapest way to stay ahead of them.
-      </p>
-      <a class="call-btn" href={`tel:${business.phoneE164}`}>
-        <PhoneIcon />
-        Call {business.phoneDisplay}
-      </a>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <span>Comfort Club</span></nav>
+      <span class="eyebrow">The Loos & Sons Comfort Club</span>
+      <h1>Maintenance made simple.</h1>
+      <p class="club-price"><strong>$99</strong> per piece of equipment <span aria-hidden="true">·</span> per visit</p>
+      <p class="svc-intro">Straightforward maintenance for the equipment you actually own, from a family business that answers the phone.</p>
+      <a class="call-btn" href={`tel:${business.phoneE164}`}><PhoneIcon /> Join the Comfort Club</a>
     </div>
   </section>
 
-  <section class="section svc-signs">
-    <div class="wrap">
-      <h2>How the pricing works</h2>
-      <div class="price-box">
-        <p class="price-line">
-          <span class="price-num">$99</span> per piece of equipment, per year
-        </p>
-        <p>Each of these counts as one piece of equipment:</p>
-        <ul class="sign-list">
-          {
-            covered.map((c) => (
-              <li>
-                <span class="tick" aria-hidden="true">
-                  ✓
-                </span>
-                <span>{c}</span>
-              </li>
-            ))
-          }
-        </ul>
-        <p class="price-add">
-          <strong>Mini-splits:</strong> a system with up to 3 heads counts as one piece of equipment.
-          Additional heads beyond the first 3 are $30 each.
-        </p>
-      </div>
+  <section class="club-count"><div class="wrap"><div class="club-notice"><span class="notice-mark" aria-hidden="true">?</span><div><h2>Not sure how many pieces of equipment you have?</h2><p>No problem. Our technician can determine your equipment count on-site and explain your Comfort Club pricing before proceeding.</p></div></div></div></section>
 
-      <div class="price-box price-box-alt">
-        <p class="price-line"><span class="price-num">$198</span> per year for geothermal</p>
-        <p>
-          Geothermal is priced on its own because it earns two inspections a year rather than one. A
-          ground source system both heats and cools, so it gets checked going into the heating season
-          and again going into the cooling season. Very few companies on the Front Range service
-          these at all, which is the other reason we treat it separately.
-        </p>
-        <p class="price-add">
-          <a href="/services/geothermal/">More about our geothermal work</a>
-        </p>
-      </div>
+  <section class="section club-benefits"><div class="wrap"><span class="eyebrow">Active residential plans include</span><h2>Comfort that goes beyond maintenance.</h2><div class="club-grid club-grid-three">{comfortClub.benefits.map((benefit) => <article class="club-card"><h3>{benefit.title}</h3><p>{benefit.body}</p>{benefit.note && <p class="club-small">{benefit.note}</p>}</article>)}</div></div></section>
 
-      <p class="city-body">
-        So a house with a furnace and an air conditioner is two pieces of equipment, or $198 a year.
-        A house with a boiler and a 4 head mini-split system is two pieces plus $30 for the fourth
-        head. Call us with what you have and we will tell you the number before you commit to
-        anything.
-      </p>
-    </div>
-  </section>
+  <section class="section club-pricing"><div class="wrap"><span class="eyebrow">Clear pricing</span><h2>Built around your equipment.</h2><div class="pricing-grid">{comfortClub.pricing.map((price) => <article class="pricing-card"><h3>{price.title}</h3><p class="pricing-number">{price.price}</p><p class="pricing-unit">{price.unit}</p><ul>{price.items.map((item) => <li>{item}</li>)}</ul>{price.title === 'Commercial' && <p class="club-small">Residential member benefits are not represented as applying to commercial plans while that policy is still being finalized.</p>}</article>)}</div></div></section>
 
-  <section class="section svc-process">
-    <div class="wrap">
-      <h2>Why bother with a plan</h2>
-      <ol class="step-list">
-        <li>
-          <h3>Problems get found in the fall, not in January</h3>
-          <p>
-            A worn part caught during a scheduled visit is a small repair. The same part failing on
-            the coldest night of the year is an emergency call, and every heating company in the
-            county is already booked that night.
-          </p>
-        </li>
-        <li>
-          <h3>Your warranty usually depends on it</h3>
-          <p>
-            Most manufacturers require documented annual maintenance to keep the warranty valid.
-            People find that out at the worst possible moment, which is when they file a claim.
-          </p>
-        </li>
-        <li>
-          <h3>Equipment lasts longer and runs cheaper</h3>
-          <p>
-            Clean coils, correct charge, and unobstructed airflow are the difference between a system
-            that reaches its full service life and one that quits early.
-          </p>
-        </li>
-        <li>
-          <h3>We already know your system</h3>
-          <p>
-            When you do call with a problem, we are not seeing your mechanical room for the first
-            time. That shortens the visit and it shortens the bill.
-          </p>
-        </li>
-      </ol>
-    </div>
-  </section>
+  <section class="section club-inspections"><div class="wrap"><span class="eyebrow">See what we inspect</span><h2>Thorough where it counts.</h2><p class="city-body">Open an equipment type to review its maintenance and inspection checklist.</p><div class="inspection-list">{comfortClub.inspections.map((inspection, index) => <details open={index === 0}><summary><span>{inspection.name}</span><strong>{inspection.price}</strong></summary><div class="inspection-body">{inspection.groups.map((group) => <section><h3>{group.title}</h3><ul>{group.items.map((item) => <li>{item}</li>)}</ul></section>)}</div>{inspection.note && <p class="inspection-note">{inspection.note}</p>}</details>)}<details class="pending-detail"><summary><span>Boiler</span><strong>Inspection details pending</strong></summary><p class="inspection-note">Boiler-specific inspection details have not been finalized. No checklist is represented until Loos & Sons provides it.</p></details></div></div></section>
 
-  <section class="final-cta section" aria-labelledby="plan-cta">
-    <div class="wrap">
-      <span class="eyebrow">Longmont and the Front Range</span>
-      <h2 id="plan-cta">Tell us what is in your house and we will price it.</h2>
-      <a class="call-btn" href={`tel:${business.phoneE164}`}>
-        <PhoneIcon />
-        Call {business.phoneDisplay}
-      </a>
-    </div>
-  </section>
+  <section class="section club-cleaning"><div class="wrap"><span class="eyebrow">Cleaning and additional work</span><h2>We explain added work before proceeding.</h2><div class="cleaning-grid"><article><h3>Included where listed</h3><ul>{comfortClub.includedCleaning.map((item) => <li>{item}</li>)}</ul></article><article><h3>Not automatically included</h3><ul>{comfortClub.extraWork.map((item) => <li>{item}</li>)}</ul><p>Pricing is communicated and customer authorization obtained before additional billable work.</p></article></div><div class="deep-clean-note"><h3>Deep cleaning for applicable standard systems</h3>{comfortClub.deepCleaning.map((item) => <p>{item}</p>)}<p>Final pricing can vary with accessibility, equipment design, buildup, disassembly, and labor. These starting prices do not apply automatically to mini-split indoor-head cleaning.</p></div></div></section>
+
+  <section class="section swamp-club"><div class="wrap"><div><span class="eyebrow">Seasonal service</span><h2>Swamp cooler startup and shutdown</h2><p class="club-price-small">Startup: <strong>$249</strong> · Shutdown: <strong>$249</strong></p></div><p class="club-legal">Service is limited to the work actually performed. Loos & Sons does not assume responsibility for leaks, flooding, freeze damage, water damage, or failures originating from pre-existing equipment, plumbing, valves, supply lines, drains, or components outside that scope. This does not limit responsibility for Loos & Sons' own negligence.</p></div></section>
+
+  <section class="final-cta section" aria-labelledby="club-cta"><div class="wrap"><span class="eyebrow">Longmont and the Front Range</span><h2 id="club-cta">Tell us what you have. We will explain the price before proceeding.</h2><a class="call-btn" href={`tel:${business.phoneE164}`}><PhoneIcon /> Call {business.phoneDisplay}</a></div></section>
+
+  <section class="section club-terms"><div class="wrap"><h2>Comfort Club terms at a glance</h2><p>All benefits require active membership. The $500 equipment replacement benefit becomes available after 12 consecutive months in good standing and applies to one qualifying new piece of HVAC equipment installed by Loos & Sons HVAC. It cannot be redeemed for cash, applied retroactively, or stacked with another equipment-replacement discount unless approved.</p><p>Final legal Terms and Conditions, cancellation, renewal, and autopay rules are still pending and are not represented here.</p></div></section>
 </Base>

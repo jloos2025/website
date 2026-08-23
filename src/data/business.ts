@@ -107,9 +107,9 @@ export const business = {
       // Not a /services/ page. It is a priced plan, so it lives at its own URL.
       slug: 'maintenance-plan',
       href: '/maintenance-plan/',
-      title: 'Maintenance Plan',
-      blurb: '$99 per piece of equipment per year, or $198 for geothermal. Build the plan around what you actually own instead of a package with things you do not need.',
-      go: 'See the pricing',
+      title: 'Comfort Club',
+      blurb: '$99 per piece of standard residential equipment, per maintenance visit. Build the plan around what you actually own instead of paying for things you do not need.',
+      go: 'See Comfort Club pricing',
     },
     {
       slug: 'seasonal-tune-ups',

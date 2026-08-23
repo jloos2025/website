@@ -1,7 +1,7 @@
 export const comfortClub = {
   standardPrice: 99,
   benefits: [
-    { title: 'Priority Service', body: 'Comfort Club members receive priority scheduling and service over non-members, subject to technician availability, emergencies, weather, and existing commitments.' },
+    { title: 'Priority Service', body: 'Comfort Club members receive priority scheduling and service over non-members, subject to technician availability, emergencies, weather, and existing commitments.', note: undefined },
     { title: '10% Off Service & Repairs', body: 'Active members receive 10% off qualifying HVAC service and repair work.', note: 'The discount does not apply to maintenance-plan pricing, previously completed work, equipment replacement, or other discounts and offers unless Loos & Sons specifically approves stacking.' },
     { title: '$500 Equipment Replacement Benefit', body: 'After 12 consecutive months of active Comfort Club membership, members receive $500 off one qualifying new piece of HVAC equipment installed by Loos & Sons HVAC.', note: 'Membership must be active and in good standing. The benefit cannot be redeemed for cash, applied retroactively, or stacked with another equipment-replacement discount unless Loos & Sons HVAC approves it.' },
   ],
@@ -19,7 +19,7 @@ export const comfortClub = {
       { title: 'Blower & Induced Draft Motors', items: ['Cleanliness and condition', 'Amp draw', 'Capacitor testing, when applicable'] },
       { title: 'Venting, Condensate & Coil', items: ['Inspect accessible exhaust and venting for leaks, improper connections, deterioration, or visible safety concerns', 'Condensate drain cleaning and operation', 'Accessible evaporator coil inspection for buildup, debris, or airflow restrictions'] },
       { title: 'Surge Protection', items: ['Check whether a surge protector is installed', 'Visually inspect accessible device and status', 'Record installed Yes or No and recommendation needed Yes or No'] },
-    ] },
+    ], note: undefined },
     { name: 'Air Conditioning', price: '$99 per A/C system, per visit', groups: [
       { title: 'Indoor', items: ['Airflow testing and temperature drop or Delta T', 'Overall system and blower cleanliness', 'Blower motor amp draw and capacitor testing', 'Accessible evaporator coil cleanliness'] },
       { title: 'Outdoor', items: ['Unit cleanliness and condition', 'Contactor inspection', 'Compressor operation and amp draw', 'Outdoor capacitor testing', 'Standard spray-off or wash of the accessible outdoor coil and unit'] },

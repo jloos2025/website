@@ -4,8 +4,11 @@ import { business } from '../data/business';
 ---
 
 <div class="sticky-call">
-  <a href={`tel:${business.phoneE164}`}>
+  <a class="sticky-book" href="https://book.housecallpro.com/book/Loos--Sons-HVAC-LLC/78dd88b83ddc4ec284ac1c3ef296ad07?v2=true">
+    Book online
+  </a>
+  <a class="sticky-phone" href={`tel:${business.phoneE164}`}>
     <PhoneIcon width="18" height="18" />
-    Tap to call {business.phoneDisplay}
+    Call {business.phoneDisplay}
   </a>
 </div>

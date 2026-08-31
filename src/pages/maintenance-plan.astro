@@ -4,6 +4,7 @@ import PhoneIcon from '../components/PhoneIcon.astro';
 import { business } from '../data/business';
 import { comfortClub } from '../data/comfortClub';
 
+const comfortClubSignupUrl = 'https://book.housecallpro.com/book/Loos--Sons-HVAC-LLC/78dd88b83ddc4ec284ac1c3ef296ad07?v2=true';
 const description = `Loos & Sons Comfort Club HVAC maintenance in Longmont, Colorado. $${comfortClub.standardPrice} per piece of equipment, per visit, with priority service and member benefits. Call ${business.phoneDisplay}.`;
 const schema = {
   '@context': 'https://schema.org',
@@ -26,7 +27,11 @@ const schema = {
       <h1>Maintenance made simple.</h1>
       <p class="club-price"><strong>$99</strong> per piece of equipment <span aria-hidden="true">·</span> per visit</p>
       <p class="svc-intro">Straightforward maintenance for the equipment you actually own, from a family business that answers the phone.</p>
-      <a class="call-btn" href={`tel:${business.phoneE164}`}><PhoneIcon /> Join the Comfort Club</a>
+      <div class="club-actions">
+        <a class="call-btn" href={`tel:${business.phoneE164}`}><PhoneIcon /> Call now</a>
+        <a class="book-btn club-enroll" href={comfortClubSignupUrl}>Enroll online</a>
+      </div>
+      <p class="club-signup-help">Enroll online to choose your equipment, see your total, and request your first maintenance visit.</p>
     </div>
   </section>
 
@@ -42,7 +47,28 @@ const schema = {
 
   <section class="section swamp-club"><div class="wrap"><div><span class="eyebrow">Seasonal service</span><h2>Swamp cooler startup and shutdown</h2><p class="club-price-small">Startup: <strong>$249</strong> · Shutdown: <strong>$249</strong></p></div><p class="club-legal">Service is limited to the work actually performed. Loos & Sons does not assume responsibility for leaks, flooding, freeze damage, water damage, or failures originating from pre-existing equipment, plumbing, valves, supply lines, drains, or components outside that scope. This does not limit responsibility for Loos & Sons' own negligence.</p></div></section>
 
-  <section class="final-cta section" aria-labelledby="club-cta"><div class="wrap"><span class="eyebrow">Longmont and the Front Range</span><h2 id="club-cta">Tell us what you have. We will explain the price before proceeding.</h2><a class="call-btn" href={`tel:${business.phoneE164}`}><PhoneIcon /> Call {business.phoneDisplay}</a></div></section>
+  <section class="final-cta section" aria-labelledby="club-cta"><div class="wrap"><span class="eyebrow">Longmont and the Front Range</span><h2 id="club-cta">Build your Comfort Club plan online.</h2><p>Choose the equipment you want covered. Your price updates as you build the plan.</p><div class="club-actions"><a class="call-btn" href={`tel:${business.phoneE164}`}><PhoneIcon /> Call now</a><a class="book-btn club-enroll" href={comfortClubSignupUrl}>Enroll online</a></div></div></section>
 
   <section class="section club-terms"><div class="wrap"><h2>Comfort Club terms at a glance</h2><p>All benefits require active membership. The $500 equipment replacement benefit becomes available after 12 consecutive months in good standing and applies to one qualifying new piece of HVAC equipment installed by Loos & Sons HVAC. It cannot be redeemed for cash, applied retroactively, or stacked with another equipment-replacement discount unless approved.</p><p>Final legal Terms and Conditions, cancellation, renewal, and autopay rules are still pending and are not represented here.</p></div></section>
 </Base>
+
+<style>
+  .club-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .85rem;
+    margin-top: 1.25rem;
+  }
+
+  .club-enroll {
+    min-height: 3.45rem;
+    padding: .85rem 1.5rem;
+    font-size: 1.05rem;
+  }
+
+  .club-signup-help {
+    max-width: 40rem;
+    margin-top: 1rem;
+  }
+</style>
